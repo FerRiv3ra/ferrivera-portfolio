@@ -6,7 +6,7 @@ export const Cards = () => {
   const { filteredprojects } = useAppContext();
 
   return (
-    <div className="flex flex-wrap mt-8">
+    <div className="flex flex-wrap mt-8 container mx-auto gap-2">
       {filteredprojects.map((project) => (
         <Card project={project} key={project.uid} />
       ))}

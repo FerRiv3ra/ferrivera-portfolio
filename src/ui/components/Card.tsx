@@ -1,4 +1,8 @@
+import { imgSelector } from '@/helpers/imgSelector';
 import { Project } from '@/types/appTypes';
+import Link from 'next/link';
+import { inter, roboto } from '../fonts';
+import { Tooltip } from './Tooltip';
 
 type Props = {
   project: Project;
@@ -6,12 +10,40 @@ type Props = {
 
 export const Card = ({ project }: Props) => {
   const { name, category } = project;
-  return (
-    <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto mb-5">
-      <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" />
+  const { img, title } = imgSelector(project.technologies[0]);
 
-      <div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64">
-        <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase">
+  return (
+    <Link
+      href={`/${project.uid}`}
+      className="flex flex-col items-center justify-center w-full max-w-sm mx-auto mb-5 hover:scale-95 transition-all ease-in-out duration-500"
+    >
+      <div className="w-full h-64 bg-gradient-to-br hover:bg-gradient-to-tl from-[#fcc733]/[0.6] via-[#fcc733]/[0.3] to-[#fcc733]/[0.1]  bg-center bg-cover rounded-lg shadow-md transition-all ease-in-out duration-500">
+        <div className="flex gap-3 px-3 pt-4 h-2/5">
+          <img src={img} alt={title} className="w-14 h-14" />
+          <p className={`${inter.className} text-white font-light text-xs`}>
+            {project.description.en}
+          </p>
+        </div>
+        <p className="text-center font-semibold text-white text-lg">
+          Technologies
+        </p>
+        <div className="flex p-3 items-center justify-around">
+          {project.technologies.map((tech, idx) => {
+            const { img, title } = imgSelector(tech);
+
+            return (
+              <Tooltip message={title} key={idx}>
+                <img src={img} alt={title} className="w-8 h-8" />
+              </Tooltip>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="w-56 -mt-9 overflow-hidden bg-white rounded-lg shadow-lg md:w-64">
+        <h3
+          className={`${roboto.className} py-2 font-semibold text-sm text-center text-gray-800 uppercase`}
+        >
           {name}
         </h3>
 
@@ -35,6 +67,6 @@ export const Card = ({ project }: Props) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

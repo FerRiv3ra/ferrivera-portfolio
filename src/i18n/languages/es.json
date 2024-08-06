@@ -1,0 +1,97 @@
+{
+  "header": {
+    "contact": "Contacto",
+    "getInTouch": "Ponerse en contacto",
+    "home": "Inicio",
+    "portfolio": "Portafolio"
+  },
+  "home": {
+    "desc": "Soy un desarrollador altamente calificado de React Native y Node, aquí está mi kit de herramientas.",
+    "githubStats": "Estadísticas de GitHub",
+    "portBy": "Por FerRivera",
+    "portClick": "Haga clic en esta tajeta para ver el portafolio",
+    "portDesc": "A través del tiempo que llevo en desarrollo, he realizado algunos proyectos de práctica, freelace y algunos personales.",
+    "portTitle": "Te invito a ver mi Portafolio",
+    "rnLibraries": "Librerías React Native",
+    "title": "Desarrollador móvil fullstack",
+    "usefulGists": "Gists Útiles"
+  },
+  "footer": {
+    "findMe": "Encuéntrame en cualquiera de estas plataformas.",
+    "keepInTouch": "¡Mantengámonos en contacto!",
+    "usefulLinks": "Enlaces útiles",
+    "appsResources": "Recursos de apps",
+    "aboutMe": "Acerca de mí",
+    "accountDeletion": "Eliminación de cuenta",
+    "privacyPolicy": "Política de privacidad",
+    "copyright": "Derechos reservados"
+  },
+  "404": {
+    "error": "Error 404",
+    "notFound": "Página no encontrada",
+    "msg": "Lo siento, la página que estás buscando no existe. Aquí unos enlaces útiles:",
+    "goBack": "Ir atrás",
+    "home": "Ir al inicio"
+  },
+  "policy": {
+    "initial": "Política",
+    "title": "de privacidad de las aplicaciones​",
+    "i1": "Fernando Rivera Aplicaciones, incluyendo: GoMed, Mira Honduras, The Vine Centre, iFootSchedule, Checkstudents and BetterLists.",
+    "i2": "Fernando Rivera Aplicaciones, no recoge ningún dato personal de los usuarios.",
+    "i3": "Fernando Rivera Aplicaciones, no registra la dirección IP.",
+    "i4": "Fernando Rivera Aplicaciones, no accede la los datos de contacto del dispositivo.",
+    "i5": "Fernando Rivera Aplicaciones, no accede a las cuentas de correo electrónico del usuario.",
+    "i6": "Fernando Rivera Aplicaciones, no guarda datos relacionados con el dispositivo.",
+    "i7": "Fernando Rivera Aplicaciones, con excepción de GoMed, no recopila información sobre su ubicación real, GoMed lo hace, pero no lo almacena ni lo guarda para ningún fin, salvo un último registro en el que se almacena la última posición en el momento de cerrar la aplicación con el fin de acelerar la futura localización en la siguiente apertura.",
+    "i8": "Fernando Rivera Aplicaciones, no Apple o Google, es el único responsable del contenido de las aplicaciones de Fernando Rivera (Bittech).",
+    "i9": "Fernando Rivera Aplicaciones, no Apple o Google, ofrece soporte técnico vía correo electrónico",
+    "msg": "Para más información acerca de esta política de privacidad, me puedes contactar a través del correo electrónico",
+    "email": "bittech.hn@gmail.com"
+  },
+  "deletion": {
+    "initial": "Eliminación",
+    "text": "de cuentas",
+    "seeInstructions": "Ver instrucciones"
+  },
+  "theVineApp": {
+    "instructions": "Instrucciones",
+    "desc": "Para eliminar su cuenta vinculada a la aplicación, debe comunicarse con la gerente de operaciones, enviando la solicitud al correo tracey.ashton@thevinecentre.org.uk",
+    "retainedOrDeletedData": "Datos a conservar",
+    "retainedOrDeletedDataMsg": "Basado en la política de privacidad propia  de The Vine Centre, es posible que no pueda eliminar todos los datos (por ejemplo, cuando los datos están vinculados a transacciones financieras que deben conservarse durante un período determinado de tiempo bajo las regulaciones financieras).",
+    "link": "Enlace a su política de privacidad"
+  },
+  "checkStudents": {
+    "instructions": "Instrucciones",
+    "desc": "Para eliminar su cuenta vinculada a la aplicación, usted debe entrar con sus credenciales y en el panel principal presionar sobre el ícono de configuración, luego eliminar su cuenta (le solicitará confirmación), si usted es estudiante, usted deberá solicitar su eliminación a cualquiera de los maestros registrados.",
+    "retainedOrDeletedData": "Datos a eliminar",
+    "retainedOrDeletedDataMsg": "Se eliminarán todos sus datos, incluyendo:",
+    "i1": "Su acceso a la aplicación.",
+    "i2": "Todas las asignaturas que usted haya creado.",
+    "i3": "Todos los reportes que usted haya creado.",
+    "link": "Enlace a su política de privacidad",
+    "retained": "Datos a conservar",
+    "retainedMsg": "Se conservará únicamente los estudiantes que usted haya agregado ya que es posible que este vinculado con otro maestro, sin embargo si el estudiante mantiene inactividad por 180 días, se eliminará su cuenta."
+  },
+  "portfolio": {
+    "APPMOVIL": "App móvil",
+    "BACKEND": "Servidor Backend",
+    "WEB": "Aplicación Web",
+    "url": "Abrir web",
+    "docsUrl": "Ver documentación",
+    "github": "GitHub",
+    "screenshots": "Capturas",
+    "playstore": "PlayStore",
+    "appstore": "AppStore",
+    "technologies": "Tecnologías"
+  },
+  "aboutMe": {
+    "aboutMe": "Acerca de mí",
+    "description": "Soy un desarrollador altamente calificado de React Native y Node con más de 2 años de experiencia en el desarrollo de aplicaciones móviles y aplicaciones web multiplataforma. Me destaco en el desarrollo móvil utilizando React Native con Javascript o Typescript, y tengo experiencia con tecnologías de back-end como Express.js y MongoDB. Tengo sólidos conocimientos en RESTful API. Soy un solucionador de problemas dedicado y un jugador de equipo, con pasión por aprender y estar al día con las últimas tecnologías."
+  },
+  "contactMe": {
+    "social": "Sígueme en",
+    "email": "Envíame un correo electrónico",
+    "resume": "Mira mi CV",
+    "open": "Abrir"
+  }
+}

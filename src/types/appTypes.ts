@@ -55,4 +55,8 @@ export type imgNameType =
   | 'typeorm'
   | 'typescript'
   | 'vectorIcons'
+  | 'nextjs'
+  | 'expo'
+  | 'PDF Make'
+  | 'PDF Kit'
   | 'vsCode';

@@ -1,0 +1,97 @@
+{
+  "header": {
+    "contact": "Contact",
+    "getInTouch": "Get in touch",
+    "home": "Home",
+    "portfolio": "Portfolio"
+  },
+  "home": {
+    "desc": "I am a highly skilled React Native and Node developer, here is my toolkit.",
+    "githubStats": "GitHub Stats",
+    "portBy": "By FerRivera",
+    "portClick": "Click on this card to see the portfolio",
+    "portDesc": "Through the time that I have been developing, I have done some practice projects, freelace and some personal ones.",
+    "portTitle": "I invite you to see my portfolio",
+    "rnLibraries": "React Native Libraries",
+    "title": "Fullstack mobile developer",
+    "usefulGists": "Useful Gists"
+  },
+  "footer": {
+    "findMe": "Find me on any of these platforms.",
+    "keepInTouch": "Let's keep in touch!",
+    "usefulLinks": "Useful links",
+    "appsResources": "Apps resources",
+    "aboutMe": "About me",
+    "accountDeletion": "Account deletion",
+    "privacyPolicy": "Privacy policy",
+    "copyright": "Copyright"
+  },
+  "404": {
+    "error": "404 error",
+    "notFound": "Page not found",
+    "msg": "Sorry, the page you are looking for doesn't exist. Here are some helpful links:",
+    "goBack": "Go Back",
+    "home": "Take me home"
+  },
+  "policy": {
+    "initial": "Apps",
+    "title": "Privacy Policy​",
+    "i1": "Fernando Rivera Applications, include: GoMed, Mira Honduras, The Vine Centre, iFootSchedule, Checkstudents and BetterLists.",
+    "i2": "Fernando Rivera Applications, does not collect any personal data from users.",
+    "i3": "Fernando Rivera Applications, does not log IP addresses.",
+    "i4": "Fernando Rivera Applications, does not access the contact data of the device.",
+    "i5": "Fernando Rivera Applications, does not access users' email accounts.",
+    "i6": "Fernando Rivera Applications, does not save data related to the device.",
+    "i7": "Fernando Rivera Applications, with the exception of GoMed, does not collect information about your real location, GoMed does, but it does not store or keep it for any purpose, except for a last record in which the last position is stored at the time of closing the application with in order to speed up the future location on the next power-up.",
+    "i8": "Fernando Rivera Applications, not Apple or Google, is solely responsible for the content of Fernando Rivera (Bittech) applications.",
+    "i9": "Fernando Rivera Applications, not Apple or Google, offers technical support via email",
+    "msg": "For more information about this privacy policy, you can contact me by email",
+    "email": "bittech.hn@gmail.com"
+  },
+  "deletion": {
+    "initial": "Account",
+    "text": "deletion",
+    "seeInstructions": "See instructions"
+  },
+  "theVineApp": {
+    "instructions": "Instructions",
+    "desc": "To delete your account linked to the app, you must contact the operations manager, sending the request to tracey.ashton@thevinecentre.org.uk",
+    "retainedOrDeletedData": "Data to be retained",
+    "retainedOrDeletedDataMsg": "Based on The Vine Center's own privacy policy, you may not be able to delete all data (for example, where the data is linked to financial transactions that must be retained for a certain period of time under financial regulations).",
+    "link": "Link to their privacy policy"
+  },
+  "checkStudents": {
+    "instructions": "Instructions",
+    "desc": "To delete your account linked to the application, you must enter with your credentials and in the main panel click on the configuration icon, then delete your account (it will ask you for confirmation), if you are a student, you must request its deletion to any of registered teachers.",
+    "retainedOrDeletedData": "Data to be deleted",
+    "retainedOrDeletedDataMsg": "All your data will be deleted, including:",
+    "i1": "Your access to the application.",
+    "i2": "All subjects that you have created.",
+    "i3": "All reports you have created.",
+    "link": "Link to their privacy policy",
+    "retained": "Data to be retained",
+    "retainedMsg": "Only the students that you have added will be kept since it is possible that you are linked to another teacher, however if the student remains inactive for 180 days, your account will be deleted."
+  },
+  "portfolio": {
+    "APPMOVIL": "Mobile App",
+    "BACKEND": "Backend Server",
+    "WEB": "Web App",
+    "url": "Open web",
+    "docsUrl": "See docs",
+    "github": "GitHub",
+    "playstore": "PlayStore",
+    "appstore": "AppStore",
+    "screenshots": "Screenshots",
+    "technologies": "Technologies"
+  },
+  "aboutMe": {
+    "aboutMe": "About me",
+    "description": "I am a highly skilled React Native and Node developer with more than 2 years of experience developing cross-platform mobile apps and web apps. I excel at mobile development using React Native with Javascript or Typescript, and have experience with back-end technologies like Express.js and MongoDB. I have solid knowledge in RESTful API. I am a dedicated problem solver and team player, with a passion for learning and staying up to date with the latest technologies."
+  },
+  "contactMe": {
+    "social": "Follow me on",
+    "email": "Send me an email",
+    "resume": "See my resume",
+    "open": "Open"
+  }
+}

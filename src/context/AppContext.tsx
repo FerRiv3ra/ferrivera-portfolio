@@ -1,4 +1,5 @@
 import { axiosClient } from '@/config/axiosClient';
+import i18n from '@/i18n/i18nConfig';
 import { PortfolioResponse, Project, projectIdType } from '@/types/appTypes';
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -6,6 +7,7 @@ type AppContextProps = {
   filteredprojects: Project[];
   loading: boolean;
   category: projectIdType | 'ALL';
+  theme: 'light' | 'dark';
   getProject: (projectId: string) => Project;
   getRelatedProjects: (title: string) => Project[];
   filterProjects: (cat: 'ALL' | projectIdType) => void;
@@ -18,6 +20,37 @@ export const AppProvider = ({ children }: any) => {
   const [filteredprojects, setFilteredProjects] = useState<Project[]>([]);
   const [category, setCategory] = useState<'ALL' | projectIdType>('ALL');
   const [loading, setLoading] = useState(true);
+
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    const userLangStg = localStorage.getItem('userLang');
+
+    const navLang = window.navigator.language.slice(0, 2);
+
+    if (!!userLangStg) {
+      i18n.changeLanguage(userLangStg);
+    } else {
+      localStorage.setItem('navLang', navLang);
+      i18n.changeLanguage(navLang);
+    }
+  }, []);
+
+  useEffect(() => {
+    const userThemeStg = localStorage.getItem('theme');
+
+    if (!!userThemeStg) {
+      setTheme(userThemeStg as 'dark' | 'light');
+    } else {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem('theme', 'dark');
+        setTheme('dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+        setTheme('light');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     getProjects();
@@ -78,6 +111,7 @@ export const AppProvider = ({ children }: any) => {
     <AppContext.Provider
       value={{
         category,
+        theme,
         filteredprojects,
         filterProjects,
         getProject,

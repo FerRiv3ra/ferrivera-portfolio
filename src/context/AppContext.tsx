@@ -21,7 +21,7 @@ export const AppProvider = ({ children }: any) => {
   const [category, setCategory] = useState<'ALL' | projectIdType>('ALL');
   const [loading, setLoading] = useState(true);
 
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     const userLangStg = localStorage.getItem('userLang');
@@ -87,11 +87,12 @@ export const AppProvider = ({ children }: any) => {
       ? title.split(' ')[1]
       : title.split(' ')[0];
 
-    const relatedProjects = title.startsWith('RN')
-      ? [getProject(projectId)]
-      : projects.filter((project) =>
-          project.name.toLowerCase().includes(keyword.toLowerCase())
-        );
+    const relatedProjects =
+      title.startsWith('RN') || title.includes('Myelino')
+        ? [getProject(projectId)]
+        : projects.filter((project) =>
+            project.name.toLowerCase().includes(keyword.toLowerCase())
+          );
 
     return relatedProjects;
   };

@@ -27,14 +27,14 @@ export const Carousel = ({ images }: Props) => {
 
   const colors = {
     bgIndicator: {
-      selected: theme === 'light' ? 'bg-gray-400' : 'bg-gray-800',
-      unSelected: theme === 'light' ? 'bg-gray-800' : 'bg-white',
+      selected: theme === 'light' ? 'bg-[#fcc733]' : 'bg-gray-800',
+      unSelected: theme === 'light' ? 'bg-gray-400' : 'bg-white',
     },
     controls: {
-      text: theme === 'light' ? 'text-gray-800' : 'text-white',
+      text: theme === 'light' ? 'text-[#fcc733]' : 'text-white',
       group:
         theme === 'light'
-          ? 'bg-black/30 group-hover:bg-black/50 group-focus:ring-black'
+          ? 'bg-white/30 group-hover:bg-black/50 group-focus:ring-black'
           : 'bg-white/30 group-hover:bg-white/50 group-focus:ring-white',
     },
   };
@@ -51,7 +51,7 @@ export const Carousel = ({ images }: Props) => {
         <div className="duration-700 ease-in-out" data-carousel-item="">
           <img
             src={images[visible]}
-            className="block border border-gray-800 rounded-lg absolute h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hover:scale-125 transition duration-500"
+            className="block border border-gray-800 rounded-lg absolute h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hover:scale-110 transition duration-500"
             alt={images[visible]}
           />
         </div>

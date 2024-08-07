@@ -1,6 +1,7 @@
 'use client';
 import { AppProvider } from '@/context/AppContext';
 import i18n from '@/i18n/i18nConfig';
+import Footer from '@/ui/components/Footer';
 import { NavBar } from '@/ui/components/NavBar';
 import { I18nextProvider } from 'react-i18next';
 import { inter } from '../ui/fonts';
@@ -23,9 +24,10 @@ export default function RootLayout({
         <meta name="author" content="https://github.com/FerRiv3ra" />
       </head>
       <body className={inter.className}>
-        <NavBar />
         <I18nextProvider i18n={i18n}>
+          <NavBar />
           <AppProvider>{children}</AppProvider>
+          <Footer />
         </I18nextProvider>
       </body>
     </html>

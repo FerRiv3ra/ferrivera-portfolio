@@ -76,6 +76,7 @@
     "APPMOVIL": "Mobile App",
     "BACKEND": "Backend Server",
     "WEB": "Web App",
+    "LIBRARY": "Library",
     "url": "Open web",
     "docsUrl": "See docs",
     "github": "GitHub",

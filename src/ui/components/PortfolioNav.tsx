@@ -12,6 +12,7 @@ export const PortfolioNav = () => {
 
   return (
     <div
+      id="portfolio"
       className={`${inter.className} text-[#a5a5a5] flex justify-center w-full md:text-lg md:w-6/12 mx-auto font-thin`}
     >
       <button

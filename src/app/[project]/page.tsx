@@ -1,35 +1,49 @@
 'use client';
 
-import { useAppContext } from '@/context/AppContext';
-import { Project } from '@/types/appTypes';
+import { useProjectScreen } from '@/hooks/useProjectScreen';
+import { Button } from '@/ui/components/Button';
+import { Carousel } from '@/ui/components/Carousel';
+import { RelatedProjects } from '@/ui/components/RelatedProjects';
 import { indieFlower, roboto } from '@/ui/fonts';
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 export default function ProjectScren() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const { getRelatedProjects } = useAppContext();
-  const params = useParams();
-
-  useEffect(() => {
-    setProjects(getRelatedProjects(params.project as string));
-  }, []);
+  const { relatedProjects: projects, images } = useProjectScreen();
 
   if (projects.length === 0) return;
 
   return (
-    <div className="text-white">
-      <img src={projects[0].bannerUrl} className="h-full w-8/12 mx-auto mb-6" />
-      <h2
-        className={`${indieFlower.className} text-white text-5xl text-center font-normal`}
-      >
+    <div className="flex flex-col items-center text-white">
+      <h2 className={`${indieFlower.className} text-6xl text-center mb-3`}>
         {projects[0].name}
       </h2>
-      <p
-        className={`${roboto.className} text-white text-center font-extralight mb-5`}
-      >
+      <img src={projects[0].bannerUrl} className="h-full w-8/12 mx-auto mb-6" />
+      <p>Description</p>
+      <p className={`${roboto.className} text-center font-extralight mb-5`}>
         {projects[0].description.en}
       </p>
+      {images.length > 0 && (
+        <>
+          <p>Screenshots</p>
+          <Carousel images={images} />
+        </>
+      )}
+      <p>Technologies</p>
+      <div className="container">
+        {projects.map((project, index) => (
+          <div key={index}>
+            <RelatedProjects project={project} />
+            <div className="flex gap-4 justify-center">
+              {project.url && <Button type={'url'} url={project.url} />}
+              {project.docsUrl && (
+                <Button type={'docsUrl'} url={project.docsUrl} />
+              )}
+              {project.github && (
+                <Button type={'github'} url={project.github} />
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

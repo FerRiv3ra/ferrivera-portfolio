@@ -1,10 +1,12 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
 import { projectIdType } from '@/types/appTypes';
+import { useTranslation } from 'react-i18next';
 import { inter } from '../fonts';
 
 export const PortfolioNav = () => {
   const { category, filterProjects } = useAppContext();
+  const { t } = useTranslation();
 
   const handleClick = (cat: 'ALL' | projectIdType) => {
     filterProjects(cat);
@@ -24,7 +26,7 @@ export const PortfolioNav = () => {
         type="button"
         onClick={() => handleClick('ALL')}
       >
-        All
+        {t('categories.all')}
       </button>
       <button
         className={`flex-1 text-center ${
@@ -35,7 +37,7 @@ export const PortfolioNav = () => {
         type="button"
         onClick={() => handleClick('APPMOVIL')}
       >
-        Mobile
+        {t('categories.mobile')}
       </button>
       <button
         className={`flex-1 text-center ${
@@ -46,7 +48,7 @@ export const PortfolioNav = () => {
         type="button"
         onClick={() => handleClick('BACKEND')}
       >
-        Backend
+        {t('categories.backend')}
       </button>
       <button
         className={`flex-1 text-center ${
@@ -57,7 +59,7 @@ export const PortfolioNav = () => {
         type="button"
         onClick={() => handleClick('WEB')}
       >
-        Web
+        {t('categories.web')}
       </button>
       <button
         className={`flex-1 text-center ${
@@ -68,7 +70,7 @@ export const PortfolioNav = () => {
         type="button"
         onClick={() => handleClick('LIBRARY')}
       >
-        Library
+        {t('categories.library')}
       </button>
     </div>
   );

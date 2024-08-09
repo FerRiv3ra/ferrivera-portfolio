@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <div
-      className="flex items-center justify-center h-32 mt-5 bg-[#fcc733]/[.25]"
+      className="flex items-center justify-center h-32 mt-5 bg-gradient-to-b from-[#fcc733]/[.25] to-transparent"
       id="contact"
     >
       <div className="relative w-full">

@@ -25,9 +25,11 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <I18nextProvider i18n={i18n}>
-          <NavBar />
-          <AppProvider>{children}</AppProvider>
-          <Footer />
+          <AppProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </AppProvider>
         </I18nextProvider>
       </body>
     </html>

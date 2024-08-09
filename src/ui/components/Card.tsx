@@ -1,6 +1,7 @@
 import { imgSelector } from '@/helpers/imgSelector';
 import { Project } from '@/types/appTypes';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 import { inter, roboto } from '../fonts';
 import { Tooltip } from './Tooltip';
 
@@ -11,6 +12,7 @@ type Props = {
 export const Card = ({ project }: Props) => {
   const { name, category } = project;
   const { img, title } = imgSelector(project.technologies[0]);
+  const { i18n, t } = useTranslation();
 
   return (
     <Link
@@ -21,11 +23,13 @@ export const Card = ({ project }: Props) => {
         <div className="flex gap-3 px-3 pt-4 h-2/5">
           <img src={img} alt={title} className="w-14 h-14" />
           <p className={`${inter.className} text-white font-light text-xs`}>
-            {project.description.en}
+            {i18n.language === 'es'
+              ? project.description.es
+              : project.description.en}
           </p>
         </div>
         <p className="text-center font-semibold text-white text-lg">
-          Technologies
+          {t('portfolio.technologies')}
         </p>
         <div className="flex p-3 items-center justify-around">
           {project.technologies.map((tech, idx) => {
@@ -59,11 +63,7 @@ export const Card = ({ project }: Props) => {
                 : 'bg-[#00bdb4]'
             } rounded`}
           >
-            {category === 'APPMOVIL'
-              ? 'Mobile App'
-              : category === 'BACKEND'
-              ? 'Server'
-              : category}
+            {t(`portfolio.${category}`)}
           </p>
         </div>
       </div>

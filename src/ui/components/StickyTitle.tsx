@@ -1,8 +1,11 @@
 'use client';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { roboto } from '../fonts';
 
 export default function StickyTitle() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex items-center flex-col">
       <div
@@ -13,7 +16,7 @@ export default function StickyTitle() {
               sticky top-[43%]
               `}
       >
-        Portfolio
+        {t('header.portfolio')}
       </div>
       <div className="mt-4 lg:mt-10 z-10 pb-28 md:pb-48 2xl:pb-60">
         <Image

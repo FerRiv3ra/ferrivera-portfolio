@@ -4,13 +4,15 @@ import { PortfolioResponse, Project, projectIdType } from '@/types/appTypes';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 type AppContextProps = {
+  category: projectIdType | 'ALL';
   filteredprojects: Project[];
   loading: boolean;
-  category: projectIdType | 'ALL';
   theme: 'light' | 'dark';
+  filterProjects: (cat: 'ALL' | projectIdType) => void;
   getProject: (projectId: string) => Project;
   getRelatedProjects: (title: string) => Project[];
-  filterProjects: (cat: 'ALL' | projectIdType) => void;
+  toggleLanguage: () => void;
+  toggleTheme: () => void;
 };
 
 export const AppContext = createContext({} as AppContextProps);
@@ -55,6 +57,29 @@ export const AppProvider = ({ children }: any) => {
   useEffect(() => {
     getProjects();
   }, []);
+
+  const toggleLanguage = () => {
+    console.log('ASDF');
+    const currentLang = i18n.language;
+
+    if (currentLang === 'es') {
+      i18n.changeLanguage('en');
+      localStorage.setItem('userLang', 'en');
+    } else {
+      i18n.changeLanguage('es');
+      localStorage.setItem('userLang', 'es');
+    }
+  };
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      setTheme('light');
+      localStorage.setItem('theme', 'light');
+    }
+  };
 
   const getProjects = async () => {
     try {
@@ -112,12 +137,14 @@ export const AppProvider = ({ children }: any) => {
     <AppContext.Provider
       value={{
         category,
-        theme,
         filteredprojects,
         filterProjects,
         getProject,
         getRelatedProjects,
         loading,
+        theme,
+        toggleLanguage,
+        toggleTheme,
       }}
     >
       {children}

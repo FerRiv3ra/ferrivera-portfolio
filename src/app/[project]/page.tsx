@@ -5,9 +5,11 @@ import { Button } from '@/ui/components/Button';
 import { Carousel } from '@/ui/components/Carousel';
 import { RelatedProjects } from '@/ui/components/RelatedProjects';
 import { indieFlower, roboto } from '@/ui/fonts';
+import { useTranslation } from 'react-i18next';
 
 export default function ProjectScren() {
   const { relatedProjects: projects, images } = useProjectScreen();
+  const { i18n, t } = useTranslation();
 
   if (projects.length === 0) return;
 
@@ -17,17 +19,19 @@ export default function ProjectScren() {
         {projects[0].name}
       </h2>
       <img src={projects[0].bannerUrl} className="h-full w-8/12 mx-auto mb-6" />
-      <p>Description</p>
+      <p>{t('portfolio.description')}</p>
       <p className={`${roboto.className} text-center font-extralight mb-5`}>
-        {projects[0].description.en}
+        {i18n.language === 'es'
+          ? projects[0].description.es
+          : projects[0].description.en}
       </p>
       {images.length > 0 && (
         <>
-          <p>Screenshots</p>
+          <p>{t('portfolio.screenshots')}</p>
           <Carousel images={images} />
         </>
       )}
-      <p>Technologies</p>
+      <p>{t('portfolio.technologies')}</p>
       <div className="container">
         {projects.map((project, index) => (
           <div key={index}>

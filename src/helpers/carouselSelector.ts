@@ -8,48 +8,47 @@ export type ImagesCollection =
   | 'ifootschedule';
 
 export const carouselSelector = (collection: ImagesCollection) => {
-  console.log(collection);
   let images = [];
   switch (collection) {
     case 'vine':
       images = [
-        './TheVineCentre/1.jpg',
-        './TheVineCentre/2.jpg',
-        './TheVineCentre/3.jpg',
-        './TheVineCentre/4.jpg',
-        './TheVineCentre/5.jpg',
-        './TheVineCentre/6.jpg',
-        './TheVineCentre/7.jpg',
+        '/TheVineCentre/1.jpg',
+        '/TheVineCentre/2.jpg',
+        '/TheVineCentre/3.jpg',
+        '/TheVineCentre/4.jpg',
+        '/TheVineCentre/5.jpg',
+        '/TheVineCentre/6.jpg',
+        '/TheVineCentre/7.jpg',
       ];
       break;
     case 'betterlists':
       images = [
-        './betterLists/1.png',
-        './betterLists/2.png',
-        './betterLists/3.png',
-        './betterLists/4.png',
-        './betterLists/5.png',
+        '/betterLists/1.png',
+        '/betterLists/2.png',
+        '/betterLists/3.png',
+        '/betterLists/4.png',
+        '/betterLists/5.png',
       ];
       break;
     case 'checkstudents':
       images = [
-        './checkStudents/1.png',
-        './checkStudents/2.png',
-        './checkStudents/3.png',
-        './checkStudents/4.png',
-        './checkStudents/5.png',
-        './checkStudents/6.png',
-        './checkStudents/7.png',
-        './checkStudents/8.png',
+        '/checkStudents/1.png',
+        '/checkStudents/2.png',
+        '/checkStudents/3.png',
+        '/checkStudents/4.png',
+        '/checkStudents/5.png',
+        '/checkStudents/6.png',
+        '/checkStudents/7.png',
+        '/checkStudents/8.png',
       ];
       break;
     case 'ifootschedule':
       images = [
-        './iFootSchedule/1.jpg',
-        './iFootSchedule/2.jpg',
-        './iFootSchedule/3.jpg',
-        './iFootSchedule/4.jpg',
-        './iFootSchedule/5.jpg',
+        '/iFootSchedule/1.jpg',
+        '/iFootSchedule/2.jpg',
+        '/iFootSchedule/3.jpg',
+        '/iFootSchedule/4.jpg',
+        '/iFootSchedule/5.jpg',
       ];
       break;
     case 'segmented':

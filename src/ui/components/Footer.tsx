@@ -1,10 +1,14 @@
+'use client';
+import { useAppContext } from '@/context/AppContext';
 import Link from 'next/link';
 
 export default function Footer() {
+  const { bottomRef } = useAppContext();
+
   return (
     <div
       className="flex items-center justify-center h-32 mt-5 bg-gradient-to-b from-[#fcc733]/[.25] to-transparent"
-      id="contact"
+      ref={bottomRef}
     >
       <div className="relative w-full">
         <div className="absolute inset-x-0 top-0">

@@ -1,12 +1,21 @@
 import { axiosClient } from '@/config/axiosClient';
 import i18n from '@/i18n/i18nConfig';
 import { PortfolioResponse, Project, projectIdType } from '@/types/appTypes';
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  MutableRefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 type AppContextProps = {
+  bottomRef: MutableRefObject<HTMLDivElement | null>;
   category: projectIdType | 'ALL';
   filteredprojects: Project[];
   loading: boolean;
+  portfolioRef: MutableRefObject<HTMLDivElement | null>;
   theme: 'light' | 'dark';
   filterProjects: (cat: 'ALL' | projectIdType) => void;
   getProject: (projectId: string) => Project;
@@ -22,6 +31,9 @@ export const AppProvider = ({ children }: any) => {
   const [filteredprojects, setFilteredProjects] = useState<Project[]>([]);
   const [category, setCategory] = useState<'ALL' | projectIdType>('ALL');
   const [loading, setLoading] = useState(true);
+
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+  const portfolioRef = useRef<HTMLDivElement | null>(null);
 
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
@@ -59,7 +71,6 @@ export const AppProvider = ({ children }: any) => {
   }, []);
 
   const toggleLanguage = () => {
-    console.log('ASDF');
     const currentLang = i18n.language;
 
     if (currentLang === 'es') {
@@ -136,12 +147,14 @@ export const AppProvider = ({ children }: any) => {
   return (
     <AppContext.Provider
       value={{
+        bottomRef,
         category,
         filteredprojects,
         filterProjects,
         getProject,
         getRelatedProjects,
         loading,
+        portfolioRef,
         theme,
         toggleLanguage,
         toggleTheme,

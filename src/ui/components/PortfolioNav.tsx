@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { inter } from '../fonts';
 
 export const PortfolioNav = () => {
-  const { category, filterProjects } = useAppContext();
+  const { category, filterProjects, portfolioRef } = useAppContext();
   const { t } = useTranslation();
 
   const handleClick = (cat: 'ALL' | projectIdType) => {
@@ -14,7 +14,7 @@ export const PortfolioNav = () => {
 
   return (
     <div
-      id="portfolio"
+      ref={portfolioRef}
       className={`${inter.className} text-[#a5a5a5] flex justify-center w-full md:text-lg md:w-6/12 mx-auto font-thin`}
     >
       <button

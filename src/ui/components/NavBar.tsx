@@ -2,23 +2,49 @@
 import { useState } from 'react';
 
 import { useAppContext } from '@/context/AppContext';
+import { smoothScrollTo } from '@/helpers/smoothScroll';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
-  const { toggleLanguage } = useAppContext();
+  const { toggleLanguage, portfolioRef, bottomRef } = useAppContext();
+
+  const path = usePathname();
+
+  const handleClick = (div: 'portfolio' | 'bottom' | 'top') => {
+    let target: number = 0;
+    switch (div) {
+      case 'bottom':
+        if (!!bottomRef.current) {
+          target = bottomRef.current.offsetTop;
+        }
+        break;
+      case 'portfolio':
+        if (!!portfolioRef.current) {
+          target = portfolioRef.current.offsetTop - 80;
+        }
+        break;
+      case 'top':
+        target = 0;
+        break;
+    }
+
+    smoothScrollTo(target, path.includes('portfolio') ? 0 : 2500);
+  };
 
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8 fixed h-20 bg-[#0E0E0E]/[0.5] z-30 ">
       <div className="relative flex items-center justify-between">
         <Link
           href="/"
           aria-label="Company"
           title="Company"
           className="inline-flex items-end"
+          onClick={() => handleClick('top')}
         >
           <Image src={'/fr-logo.svg'} alt="Logo" width={35} height={35} />
           <span
@@ -29,26 +55,32 @@ export const NavBar = () => {
           </span>
         </Link>
         <ul className="items-center hidden space-x-8 md:flex">
-          <li>
-            <Link
-              href="#portfolio"
-              aria-label="portfolio"
-              title="portfolio"
-              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >
-              {t('header.portfolio')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#contact"
-              aria-label="contact"
-              title="contact"
-              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >
-              {t('header.getInTouch')}
-            </Link>
-          </li>
+          {!path.includes('portfolio') && (
+            <>
+              <li>
+                <Link
+                  href="/#portfolio"
+                  aria-label="portfolio"
+                  title="portfolio"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  onClick={() => handleClick('portfolio')}
+                >
+                  {t('header.portfolio')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#contact"
+                  aria-label="contact"
+                  title="contact"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  onClick={() => handleClick('bottom')}
+                >
+                  {t('header.getInTouch')}
+                </Link>
+              </li>
+            </>
+          )}
 
           <button
             onClick={toggleLanguage}
@@ -126,7 +158,7 @@ export const NavBar = () => {
                   <ul className="space-y-4">
                     <li>
                       <Link
-                        href="#portfolio"
+                        href="/#portfolio"
                         aria-label="portfolio"
                         title="portfolio"
                         className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -136,7 +168,7 @@ export const NavBar = () => {
                     </li>
                     <li>
                       <Link
-                        href="#contact"
+                        href="/#contact"
                         aria-label="contact"
                         title="contact"
                         className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"

@@ -6,7 +6,9 @@ export const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={`${roboto.className} relative bg-[#fcc733]/[.25]`}>
+    <div
+      className={`${roboto.className} relative bg-gradient-to-b from-transparent to-[#fcc733]/[.25] pt-20`}
+    >
       <div className="absolute inset-x-0 bottom-0">
         <svg
           viewBox="0 0 224 12"

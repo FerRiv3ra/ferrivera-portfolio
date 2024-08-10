@@ -67,7 +67,7 @@ export const Carousel = ({ images }: Props) => {
                 ? colors.bgIndicator.selected
                 : colors.bgIndicator.unSelected
             }`}
-          ></button>
+          />
         ))}
       </div>
       {/* Slider controls */}

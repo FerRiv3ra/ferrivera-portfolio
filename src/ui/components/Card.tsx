@@ -16,7 +16,7 @@ export const Card = ({ project }: Props) => {
 
   return (
     <Link
-      href={`/${project.uid}`}
+      href={`/portfolio/${project.uid}`}
       className="flex flex-col items-center justify-center w-full max-w-sm mx-auto mb-5 hover:scale-95 transition-all ease-in-out duration-500"
     >
       <div className="w-full h-64 bg-gradient-to-br hover:bg-gradient-to-tl from-[#fcc733]/[0.6] via-[#fcc733]/[0.3] to-[#fcc733]/[0.1]  bg-center bg-cover rounded-lg shadow-md transition-all ease-in-out duration-500">

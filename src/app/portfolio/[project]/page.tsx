@@ -14,7 +14,7 @@ export default function ProjectScren() {
   if (projects.length === 0) return;
 
   return (
-    <div className="flex flex-col items-center text-white">
+    <div className="flex flex-col items-center text-white pt-20">
       <h2 className={`${indieFlower.className} text-6xl text-center mb-3`}>
         {projects[0].name}
       </h2>

@@ -18,6 +18,7 @@ export interface Project {
   description: {
     en: string;
     es: string;
+    it: string;
   };
   uid: string;
   url?: string;

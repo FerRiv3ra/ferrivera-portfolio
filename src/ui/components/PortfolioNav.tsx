@@ -15,7 +15,7 @@ export const PortfolioNav = () => {
   return (
     <div
       ref={portfolioRef}
-      className={`${inter.className} text-[#a5a5a5] flex justify-center w-full md:text-lg md:w-6/12 mx-auto font-thin`}
+      className={`${inter.className} text-[#a5a5a5] flex justify-center w-full md:text-lg md:w-6/12 mx-auto font-thin px-3`}
     >
       <button
         className={`flex-1 text-center ${

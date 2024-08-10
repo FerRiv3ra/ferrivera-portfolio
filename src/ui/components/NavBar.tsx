@@ -37,7 +37,7 @@ export const NavBar = () => {
   };
 
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8 fixed h-20 bg-[#0E0E0E]/[0.5] z-30 ">
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full w-full md:px-24 lg:px-8 fixed h-20 bg-[#0E0E0E]/[0.5] z-30 ">
       <div className="relative flex items-center justify-between">
         <Link
           href="/"
@@ -88,7 +88,11 @@ export const NavBar = () => {
             className="inline-flex z-30 items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
             translate="no"
           >
-            {i18n.language === 'es' ? '🇪🇸 ES' : '🇬🇧 EN'}
+            {i18n.language === 'es'
+              ? '🇪🇸 ES'
+              : i18n.language === 'en'
+              ? '🇬🇧 EN'
+              : '🇮🇹 IT'}
           </button>
         </ul>
         <div className="md:hidden z-10">

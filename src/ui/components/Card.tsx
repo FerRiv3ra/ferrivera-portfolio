@@ -17,15 +17,17 @@ export const Card = ({ project }: Props) => {
   return (
     <Link
       href={`/portfolio/${project.uid}`}
-      className="flex flex-col items-center justify-center w-full max-w-sm mx-auto mb-5 hover:scale-95 transition-all ease-in-out duration-500"
+      className="flex flex-col items-center justify-center w-[90%] sm:w-[45%] lg:max-w-sm mx-auto mb-5 hover:scale-95 transition-all ease-in-out duration-500"
     >
       <div className="w-full h-64 bg-gradient-to-br hover:bg-gradient-to-tl from-[#fcc733]/[0.6] via-[#fcc733]/[0.3] to-[#fcc733]/[0.1]  bg-center bg-cover rounded-lg shadow-md transition-all ease-in-out duration-500">
-        <div className="flex gap-3 px-3 pt-4 h-2/5">
+        <div className="flex gap-3 px-3 pt-4 h-[48%]">
           <img src={img} alt={title} className="w-14 h-14" />
           <p className={`${inter.className} text-white font-light text-xs`}>
             {i18n.language === 'es'
               ? project.description.es
-              : project.description.en}
+              : i18n.language === 'en'
+              ? project.description.en
+              : project.description.it}
           </p>
         </div>
         <p className="text-center font-semibold text-white text-lg">

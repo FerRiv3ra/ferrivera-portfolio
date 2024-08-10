@@ -21,7 +21,7 @@ export default function Footer() {
             <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z" />
           </svg>
         </div>
-        <div className="flex relative h-32 justify-between mx-6 items-center lg:justify-center lg:gap-9 z-20 ">
+        <div className="flex relative h-32 mx-6 items-center justify-center gap-9 z-20 ">
           <Link
             href="https://www.linkedin.com/in/ferriv3ra/"
             target="_blank"

@@ -73,12 +73,15 @@ export const AppProvider = ({ children }: any) => {
   const toggleLanguage = () => {
     const currentLang = i18n.language;
 
-    if (currentLang === 'es') {
+    if (currentLang === 'it') {
       i18n.changeLanguage('en');
       localStorage.setItem('userLang', 'en');
-    } else {
+    } else if (currentLang === 'en') {
       i18n.changeLanguage('es');
       localStorage.setItem('userLang', 'es');
+    } else {
+      i18n.changeLanguage('it');
+      localStorage.setItem('userLang', 'it');
     }
   };
 

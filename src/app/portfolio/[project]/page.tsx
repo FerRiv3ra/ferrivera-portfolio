@@ -22,7 +22,9 @@ export default function ProjectScren() {
       <p className={`${inter.className} font-light my-4 text-2xl`}>
         {t('portfolio.description')}
       </p>
-      <p className={`${roboto.className} text-center font-extralight mb-5`}>
+      <p
+        className={`${roboto.className} text-center font-extralight mb-5 w-2/3`}
+      >
         {i18n.language === 'es'
           ? projects[0].description.es
           : i18n.language === 'en'

@@ -23,7 +23,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="https://github.com/FerRiv3ra" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#121212]`}>
         <I18nextProvider i18n={i18n}>
           <AppProvider>
             <NavBar />

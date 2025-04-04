@@ -1,12 +1,17 @@
 {
   "header": {
     "contact": "Contacto",
-    "getInTouch": "Ponerse en contacto",
+    "getInTouch": "Contáctame",
     "home": "Inicio",
-    "portfolio": "Portafolio"
+    "about": "Sobre mí",
+    "portfolio": "Portafolio",
+    "iAM": "Hola, soy",
+    "downloadCV": "Descargar mi CV"
   },
   "home": {
-    "desc": "Hola, soy Fernando Rivera, un desarrollador altamente calificado de React, React Native y Node con más de 5 años de experiencia desarrollando aplicaciones móviles multiplataforma, servidores backend, bibliotecas para React Native y aplicaciones web.",
+    "description1": "Hola, soy Fernando Rivera, un desarrollador full stack con más de 5 años de experiencia especializado en React, React Native y Node.js. Me apasiona crear soluciones tecnológicas eficientes y escalables, tanto en el frontend como en el backend.",
+    "description2": "A lo largo de mi carrera, he trabajado en el desarrollo de aplicaciones móviles multiplataforma, APIs robustas con Node.js, bibliotecas personalizadas para React Native y aplicaciones web modernas, utilizando las mejores prácticas en rendimiento, accesibilidad y experiencia de usuario.",
+    "description3": "Mi enfoque combina habilidades técnicas sólidas con una mentalidad orientada a producto, lo que me permite colaborar eficazmente con equipos de diseño, negocio y desarrollo para entregar soluciones de alto impacto. También tengo experiencia trabajando en startups, donde la adaptabilidad y la rapidez de ejecución son clave.",
     "title": "Desarrollador móvil fullstack"
   },
   "portfolio": {

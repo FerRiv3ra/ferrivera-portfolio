@@ -11,7 +11,7 @@ export const Tooltip = ({
   const [show, setShow] = useState(false);
 
   return (
-    <div className="relative flex flex-col items-center group">
+    <div className="relative flex flex-col items-center group transition-all duration-200">
       <span
         className="flex justify-center"
         onMouseEnter={() => setShow(true)}
@@ -20,7 +20,7 @@ export const Tooltip = ({
         {children}
       </span>
       <div
-        className={`absolute whitespace-nowrap bottom-full flex flex-col items-center  group-hover:flex ${
+        className={`absolute whitespace-nowrap bottom-full flex flex-col items-center  group-hover:flex transition-all duration-200 ${
           !show ? 'hidden' : null
         }`}
       >

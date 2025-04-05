@@ -2,7 +2,7 @@
 import { useAppContext } from '@/context/AppContext';
 import { projectIdType } from '@/types/appTypes';
 import { useTranslation } from 'react-i18next';
-import { inter } from '../fonts';
+import { lato } from '../fonts';
 
 export const PortfolioNav = () => {
   const { category, filterProjects, portfolioRef } = useAppContext();
@@ -15,13 +15,13 @@ export const PortfolioNav = () => {
   return (
     <div
       ref={portfolioRef}
-      className={`${inter.className} text-[#a5a5a5] flex justify-center w-full md:text-lg md:w-6/12 mx-auto font-thin px-3`}
+      className={`${lato.className} flex justify-center w-full md:text-lg md:w-6/12 mx-auto px-3`}
     >
       <button
         className={`flex-1 text-center ${
           category === 'ALL'
-            ? 'border-b-[3px] border-[#a5a5a5]'
-            : 'border-b-[1px] border-[#4d4d4d]'
+            ? 'border-b-[3px] border-[#FD6F00] text-[#FD6F00] font-semibold'
+            : 'border-b-[1px] border-[#4d4d4d] text-[#707070]'
         } pb-3`}
         type="button"
         onClick={() => handleClick('ALL')}
@@ -31,8 +31,8 @@ export const PortfolioNav = () => {
       <button
         className={`flex-1 text-center ${
           category === 'APPMOVIL'
-            ? 'border-b-[3px] border-[#a5a5a5]'
-            : 'border-b-[1px] border-[#4d4d4d]'
+            ? 'border-b-[3px] border-[#FD6F00] text-[#FD6F00] font-semibold'
+            : 'border-b-[1px] border-[#4d4d4d] text-[#707070]'
         } pb-3`}
         type="button"
         onClick={() => handleClick('APPMOVIL')}
@@ -42,8 +42,8 @@ export const PortfolioNav = () => {
       <button
         className={`flex-1 text-center ${
           category === 'BACKEND'
-            ? 'border-b-[3px] border-[#a5a5a5]'
-            : 'border-b-[1px] border-[#4d4d4d]'
+            ? 'border-b-[3px] border-[#FD6F00] text-[#FD6F00] font-semibold'
+            : 'border-b-[1px] border-[#4d4d4d] text-[#707070]'
         } pb-3`}
         type="button"
         onClick={() => handleClick('BACKEND')}
@@ -53,8 +53,8 @@ export const PortfolioNav = () => {
       <button
         className={`flex-1 text-center ${
           category === 'WEB'
-            ? 'border-b-[3px] border-[#a5a5a5]'
-            : 'border-b-[1px] border-[#4d4d4d]'
+            ? 'border-b-[3px] border-[#FD6F00] text-[#FD6F00] font-semibold'
+            : 'border-b-[1px] border-[#4d4d4d] text-[#707070]'
         } pb-3`}
         type="button"
         onClick={() => handleClick('WEB')}
@@ -64,8 +64,8 @@ export const PortfolioNav = () => {
       <button
         className={`flex-1 text-center ${
           category === 'LIBRARY'
-            ? 'border-b-[3px] border-[#a5a5a5]'
-            : 'border-b-[1px] border-[#4d4d4d]'
+            ? 'border-b-[3px] border-[#FD6F00] text-[#FD6F00] font-semibold'
+            : 'border-b-[1px] border-[#4d4d4d] text-[#707070]'
         } pb-3`}
         type="button"
         onClick={() => handleClick('LIBRARY')}

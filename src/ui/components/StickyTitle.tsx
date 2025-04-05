@@ -1,24 +1,22 @@
 'use client';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import { roboto } from '../fonts';
+import { lato } from '../fonts';
 
 export default function StickyTitle() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center flex-col">
-      <div
-        className={`bg-gradient-to-tl from-[#cf9b42] to-[#fcc733] text-6xl sm:text-8xl lg:text-[165px] 2xl:text-[190px] font-black text-transparent bg-clip-text break-normal
-              ${roboto.className}
-              py-1
-              lg:py-2
+    <div className="flex items-center flex-col pt-20">
+      <p
+        className={`text-4xl text-center font-bold pb-5
+              ${lato.className}
               sticky top-[43%]
               `}
       >
         {t('header.portfolio')}
-      </div>
-      <div className="mt-4 lg:mt-10 z-10 pb-28 md:pb-48 2xl:pb-60">
+      </p>
+      <div className="mt-4 lg:mt-10 z-10">
         <Image
           src={'/Screen.png'}
           alt="Phone"

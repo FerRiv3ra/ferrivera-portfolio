@@ -34,5 +34,20 @@
     "backend": "Servidores",
     "web": "Web",
     "library": "Librerías"
+  },
+  "contact": {
+    "contactMe": "Contáctame",
+    "description": "Abierto a oportunidades: conéctate conmigo profesionalmente",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "send": "Enviar",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Fernando Rivera. Todos los derechos reservados."
   }
 }

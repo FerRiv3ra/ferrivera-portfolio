@@ -18,7 +18,7 @@ const resources = {
 };
 
 i18n.use(initReactI18next).init({
-  compatibilityJSON: 'v3',
+  compatibilityJSON: 'v4',
   interpolation: {
     escapeValue: false,
   },
@@ -26,6 +26,8 @@ i18n.use(initReactI18next).init({
     useSuspense: false,
   },
   resources,
+  postProcess: ['newLineProcessor'],
+  returnNull: false,
   lng: 'en',
   fallbackLng: 'en',
 });

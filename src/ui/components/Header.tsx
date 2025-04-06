@@ -14,12 +14,12 @@ export const Header = () => {
       <div className="flex flex-col lg:flex-row flex-1 items-center">
         <div>
           <p
-            className={`text-center font-semibold text-sm lg:text-base text-[#707070]`}
+            className={`text-center lg:text-left font-semibold text-sm lg:text-base text-[#707070]`}
           >
             {t('header.iAM')}
           </p>
           <p
-            className={`ont-bold text-xl lg:text-2xl text-center text-[#959595]`}
+            className={`ont-bold text-xl lg:text-2xl text-center lg:text-left text-[#959595]`}
           >
             Fernando Rivera
           </p>
@@ -28,7 +28,7 @@ export const Header = () => {
             {t('home.title')}
           </p>
 
-          <div className="flex mt-8 gap-5 justify-center">
+          <div className="flex mt-8 gap-5 justify-center lg:justify-start">
             <Link href="https://www.linkedin.com/in/ferriv3ra/" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

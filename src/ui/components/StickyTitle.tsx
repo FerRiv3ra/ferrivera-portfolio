@@ -16,7 +16,7 @@ export default function StickyTitle() {
       >
         {t('header.portfolio')}
       </p>
-      <div className="mt-4 lg:mt-10 z-10">
+      <div className="mt-4 pb-20 md:pb-0 lg:mt-10 z-10">
         <Image
           src={'/Screen.png'}
           alt="Phone"

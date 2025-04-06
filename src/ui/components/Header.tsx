@@ -9,20 +9,26 @@ export const Header = () => {
 
   return (
     <header
-      className={`${lato.className} flex relative h-[781px] items-center  my-20`}
+      className={`${lato.className} flex flex-col md:flex-row relative md:h-[781px] items-center  my-20`}
     >
-      <div className="flex flex-1 items-center">
+      <div className="flex flex-col md:flex-row flex-1 items-center">
         <div>
-          <p className={`font-semibold text-base text-[#707070]`}>
+          <p
+            className={`text-center font-semibold text-sm md:text-base text-[#707070]`}
+          >
             {t('header.iAM')}
           </p>
-          <p className={`ont-bold text-2xl text-[#959595]`}>Fernando Rivera</p>
+          <p
+            className={`ont-bold text-xl md:text-2xl text-center text-[#959595]`}
+          >
+            Fernando Rivera
+          </p>
 
-          <p className="text-[#FD6F00] text-5xl mt-5 font-bold">
+          <p className="text-[#FD6F00] text-center text-2xl md:text-5xl mt-5 font-bold">
             {t('home.title')}
           </p>
 
-          <div className="flex mt-8 gap-5 ">
+          <div className="flex mt-8 gap-5 justify-center">
             <Link href="https://www.linkedin.com/in/ferriv3ra/" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,16 +49,16 @@ export const Header = () => {
             </Link>
           </div>
 
-          <div className="flex mt-8 gap-5">
+          <div className="flex w-full mt-8 gap-5">
             <Link
               href="/#contact"
-              className="h-12 w-40 bg-[#FD6F00] rounded-lg flex justify-center items-center text-white font-bold  hover:scale-110 transition-all ease-in-out duration-500"
+              className="h-8 md:h-12 w-32 md:w-40 bg-[#FD6F00] text-sm md:text-base rounded-lg flex justify-center items-center text-white font-bold  hover:scale-110 transition-all ease-in-out duration-500"
             >
               {t('header.getInTouch')}
             </Link>
             <Link
               href="/#contact"
-              className="h-12 w-40 bg-transparent border-2 border-[#959595] rounded-lg flex justify-center items-center text-[#959595] font-bold  hover:scale-110 transition-all ease-in-out duration-500"
+              className="h-8 md:h-12 w-32 md:w-40 bg-transparent text-sm md:text-base border-2 border-[#959595] rounded-lg flex justify-center items-center text-[#959595] font-bold  hover:scale-110 transition-all ease-in-out duration-500"
             >
               {t('header.downloadCV')}
             </Link>
@@ -60,14 +66,14 @@ export const Header = () => {
         </div>
       </div>
       <div className="flex flex-1 relative justify-center items-baseline">
-        <div className="flex justify-center w-[618px] h-[618px] rounded-full  bg-white/[0.05] overflow-hidden">
+        <div className="flex justify-center w-[300px] h-[300px] mt-10 md:w-[618px] md:h-[618px] rounded-full  bg-white/[0.05] overflow-hidden">
           <Image
             src={'/FerRiveraPic.webp'}
             alt="FerRivera"
             width="0"
             height="0"
             sizes="100vw"
-            className="h-[781px] w-auto object-cover object-top"
+            className="h-[300px] md:h-[781px] w-auto object-cover object-top"
           />
         </div>
       </div>

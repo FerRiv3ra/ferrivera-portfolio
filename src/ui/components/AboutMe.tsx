@@ -34,8 +34,8 @@ export const AboutMe = () => {
     <div className={`${lato.className}`}>
       <p className="text-4xl text-center font-bold">{t('header.about')}</p>
       <p className="text-base text-center text-[#707070]">{t('home.title')}</p>
-      <div className="flex mt-10 gap-10">
-        <div className="flex flex-1 justify-end">
+      <div className="flex flex-col md:flex-row mt-10 gap-10">
+        <div className="hidden md:flex flex-1 justify-end">
           <div className="w-2/3 flex justify-end items-center gap-5 flex-wrap">
             <Tooltip message="Typescript">
               <Typescript />
@@ -112,13 +112,13 @@ export const AboutMe = () => {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-5">
-          <p className="font-medium w-2/3 text-sm text-[#959595]">
+          <p className="font-medium md:w-2/3 text-sm text-[#959595]">
             {t('home.description1')}
           </p>
-          <p className="font-medium w-2/3 text-sm text-[#959595]">
+          <p className="font-medium md:w-2/3 text-sm text-[#959595]">
             {t('home.description2')}
           </p>
-          <p className="font-medium w-2/3 text-sm text-[#959595]">
+          <p className="font-medium md:w-2/3 text-sm text-[#959595]">
             {t('home.description3')}
           </p>
         </div>

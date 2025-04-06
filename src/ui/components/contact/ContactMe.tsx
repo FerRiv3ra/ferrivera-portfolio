@@ -10,15 +10,15 @@ export const ContactMe = () => {
       <p className="text-base text-center text-[#707070]">
         {t('contact.description')}
       </p>
-      <form className="flex w-full md:w-2/3 justify-center md:justify-end mt-12 gap-7 flex-wrap">
+      <form className="flex w-full md:w-2/3 justify-center lg:justify-end mt-12 gap-7 flex-wrap">
         <input
           type="text"
-          className="p-4 bg-white/[0.04] rounded-lg w-full md:w-1/2 text-white placeholder-[#959595]"
+          className="p-4 bg-white/[0.04] rounded-lg w-full lg:flex-1 text-white placeholder-[#959595]"
           placeholder={t('contact.form.name')}
         />
         <input
           type="text"
-          className="p-4 bg-white/[0.04] rounded-lg w-full md:w-1/2 text-white placeholder-[#959595]"
+          className="p-4 bg-white/[0.04] rounded-lg w-full lg:flex-1 text-white placeholder-[#959595]"
           placeholder={t('contact.form.email')}
         />
         <textarea

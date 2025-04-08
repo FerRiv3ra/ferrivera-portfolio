@@ -6,10 +6,11 @@ const mailgun = new Mailgun(formData);
 const mg = mailgun.client({
   username: 'api',
   key: process.env.MAILGUN_API_KEY || '',
-  url: 'https://api.mailgun.net', // o https://api.eu.mailgun.net si estás en Europa
+  url: 'https://api.eu.mailgun.net',
 });
 
 export async function POST(req: Request) {
+  console.log('Sending email...');
   const body = await req.json();
   const { name, email, message } = body;
 
@@ -22,10 +23,10 @@ export async function POST(req: Request) {
 
   try {
     const res = await mg.messages.create(process.env.MAILGUN_DOMAIN || '', {
-      from: 'Formulario Web <contact@ferriv3ra.dev>',
+      from: 'Web contact form <contact@ferriv3ra.dev>',
       to: process.env.MAILGUN_TO || '',
-      subject: `Nuevo mensaje de contacto de ${name}`,
-      text: `Nombre: ${name}\nCorreo: ${email}\nMensaje:\n${message}`,
+      subject: `New message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
     });
 
     return NextResponse.json({ success: true, data: res });

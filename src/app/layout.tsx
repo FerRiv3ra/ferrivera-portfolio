@@ -4,6 +4,7 @@ import i18n from '@/i18n/i18nConfig';
 import Footer from '@/ui/components/Footer';
 import { NavBar } from '@/ui/components/NavBar';
 import { I18nextProvider } from 'react-i18next';
+import { Bounce, ToastContainer } from 'react-toastify';
 import { inter } from '../ui/fonts';
 import '../ui/globals.css';
 
@@ -28,6 +29,16 @@ export default function RootLayout({
           <AppProvider>
             <NavBar />
             {children}
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              closeOnClick
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+              transition={Bounce}
+            />
             <Footer />
           </AppProvider>
         </I18nextProvider>

@@ -27,11 +27,11 @@ export const Carousel = ({ images }: Props) => {
   return (
     <div
       id="default-carousel"
-      className="flex relative flex-col items-center w-full mb-10"
+      className="flex relative flex-1 flex-col items-center w-full mb-10"
       data-carousel="slide"
     >
       {/* Carousel wrapper */}
-      <div className="flex relative justify-center items-center gap-5 h-56  rounded-lg md:h-96">
+      <div className="flex relative justify-center items-center gap-5 h-auto  rounded-lg md:h-96 lg:h-[450px]">
         {/* Item 1 */}
 
         <button type="button" onClick={() => handleChange('less')}>
@@ -57,11 +57,11 @@ export const Carousel = ({ images }: Props) => {
         </button>
         <Image
           src={images[visible]}
-          alt={images[visible]}
+          alt={`Project image ${visible}`}
           width="0"
           height="0"
           sizes="100vw"
-          className="h-96 w-auto object-cover object-top hover:scale-110 transition duration-500"
+          className="w-10/12 md:h-96 lg:h-[450px] md:w-auto object-cover object-top hover:scale-110 transition duration-500"
         />
 
         <button type="button" onClick={() => handleChange('add')}>

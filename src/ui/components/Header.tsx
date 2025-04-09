@@ -1,11 +1,30 @@
 'use client';
+import { useAppContext } from '@/context/AppContext';
+import { smoothScrollTo } from '@/helpers/smoothScroll';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { lato } from '../fonts';
 
 export const Header = () => {
   const { t } = useTranslation();
+  const { contactRef } = useAppContext();
+  const [resumeUrl, setResumeUrl] = useState('');
+
+  useEffect(() => {
+    setResumeUrl(process.env.NEXT_PUBLIC_RESUME_URL ?? '');
+  }, []);
+
+  const handleClick = () => {
+    let target: number = 0;
+
+    if (!!contactRef.current) {
+      target = contactRef.current.offsetTop;
+    }
+
+    smoothScrollTo(target, 2500);
+  };
 
   return (
     <header
@@ -50,14 +69,15 @@ export const Header = () => {
           </div>
 
           <div className="flex w-full mt-8 gap-5">
-            <Link
-              href="/#contact"
+            <button
+              onClick={handleClick}
               className="h-8 lg:h-12 w-32 lg:w-40 bg-[#FD6F00] text-sm lg:text-base rounded-lg flex justify-center items-center text-white font-bold  hover:scale-110 transition-all ease-in-out duration-500"
             >
               {t('header.getInTouch')}
-            </Link>
+            </button>
             <Link
-              href="/#contact"
+              href={resumeUrl}
+              target="_blank"
               className="h-8 lg:h-12 w-32 lg:w-40 bg-transparent text-sm lg:text-base border-2 border-[#959595] rounded-lg flex justify-center items-center text-[#959595] font-bold  hover:scale-110 transition-all ease-in-out duration-500"
             >
               {t('header.downloadCV')}

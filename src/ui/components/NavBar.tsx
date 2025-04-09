@@ -12,23 +12,29 @@ import { lato } from '../fonts';
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
-  const { toggleLanguage, portfolioRef, bottomRef } = useAppContext();
+  const { toggleLanguage, portfolioRef, contactRef, aboutRef } =
+    useAppContext();
 
   const path = usePathname();
 
-  const handleClick = (div: 'portfolio' | 'bottom' | 'top') => {
+  const handleClick = (div: 'portfolio' | 'contact' | 'top' | 'about') => {
     let target: number = 0;
     if (isMenuOpen) setIsMenuOpen(false);
 
     switch (div) {
-      case 'bottom':
-        if (!!bottomRef.current) {
-          target = bottomRef.current.offsetTop;
+      case 'contact':
+        if (!!contactRef.current) {
+          target = contactRef.current.offsetTop;
         }
         break;
       case 'portfolio':
         if (!!portfolioRef.current) {
-          target = portfolioRef.current.offsetTop - 80;
+          target = portfolioRef.current.offsetTop - 140;
+        }
+        break;
+      case 'about':
+        if (!!aboutRef.current) {
+          target = aboutRef.current.offsetTop - 80;
         }
         break;
       case 'top':
@@ -77,7 +83,7 @@ export const NavBar = () => {
               aria-label="about"
               title="about"
               className="font-medium tracking-wide text-[#959595] transition-colors duration-200 hover:text-teal-accent-400"
-              onClick={() => {}}
+              onClick={() => handleClick('about')}
             >
               {t('header.about')}
             </Link>
@@ -99,7 +105,7 @@ export const NavBar = () => {
               aria-label="contact"
               title="contact"
               className="font-medium tracking-wide text-[#959595] transition-colors duration-200 hover:text-teal-accent-400"
-              onClick={() => handleClick('bottom')}
+              onClick={() => handleClick('contact')}
             >
               {t('header.getInTouch')}
             </Link>
@@ -200,7 +206,7 @@ export const NavBar = () => {
                         aria-label="about"
                         title="about"
                         className="font-medium tracking-wide text-[#959595] transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        onClick={() => {}}
+                        onClick={() => handleClick('about')}
                       >
                         {t('header.about')}
                       </Link>
@@ -222,7 +228,7 @@ export const NavBar = () => {
                         aria-label="contact"
                         title="contact"
                         className="font-medium tracking-wide text-[#959595] transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        onClick={() => handleClick('bottom')}
+                        onClick={() => handleClick('contact')}
                       >
                         {t('header.getInTouch')}
                       </Link>

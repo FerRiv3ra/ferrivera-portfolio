@@ -1,4 +1,5 @@
 'use client';
+import { useAppContext } from '@/context/AppContext';
 import { useForm } from '@/hooks/useForm';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +7,7 @@ import { toast } from 'react-toastify';
 
 export const ContactMe = () => {
   const { t } = useTranslation();
+  const { contactRef } = useAppContext();
   const { name, email, message, onChange, reset } = useForm({
     name: '',
     email: '',
@@ -29,7 +31,10 @@ export const ContactMe = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center my-20">
+    <div
+      ref={contactRef}
+      className="flex flex-col items-center justify-center my-20"
+    >
       <p className="text-4xl text-center font-bold">{t('contact.contactMe')}</p>
       <p className="text-base text-center text-[#707070]">
         {t('contact.description')}

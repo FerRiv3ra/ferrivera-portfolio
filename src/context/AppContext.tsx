@@ -11,7 +11,8 @@ import {
 } from 'react';
 
 type AppContextProps = {
-  bottomRef: MutableRefObject<HTMLDivElement | null>;
+  aboutRef: MutableRefObject<HTMLDivElement | null>;
+  contactRef: MutableRefObject<HTMLDivElement | null>;
   category: projectIdType | 'ALL';
   filteredprojects: Project[];
   loading: boolean;
@@ -32,7 +33,8 @@ export const AppProvider = ({ children }: any) => {
   const [category, setCategory] = useState<'ALL' | projectIdType>('ALL');
   const [loading, setLoading] = useState(true);
 
-  const bottomRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
   const portfolioRef = useRef<HTMLDivElement | null>(null);
 
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -150,7 +152,8 @@ export const AppProvider = ({ children }: any) => {
   return (
     <AppContext.Provider
       value={{
-        bottomRef,
+        aboutRef,
+        contactRef,
         category,
         filteredprojects,
         filterProjects,

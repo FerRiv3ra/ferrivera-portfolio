@@ -1,4 +1,5 @@
 'use client';
+import { useAppContext } from '@/context/AppContext';
 import { useTranslation } from 'react-i18next';
 import { lato } from '../fonts';
 import { Tooltip } from './Tooltip';
@@ -29,9 +30,10 @@ import { I18NextIcon } from './icons/i18Next';
 
 export const AboutMe = () => {
   const { t } = useTranslation();
+  const { aboutRef } = useAppContext();
 
   return (
-    <div className={`${lato.className}`}>
+    <div ref={aboutRef} className={`${lato.className}`}>
       <p className="text-4xl text-center font-bold">{t('header.about')}</p>
       <p className="text-base text-center text-[#707070]">{t('home.title')}</p>
       <div className="flex flex-col md:flex-col-reverse lg:flex-row mt-10 gap-10">

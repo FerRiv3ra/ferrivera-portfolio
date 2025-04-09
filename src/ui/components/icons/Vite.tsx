@@ -19,8 +19,8 @@ export const Vite = ({ className = 'h-10 w-10' }: ViteProps) => {
           gradientTransform="translate(0 .937) scale(.3122)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#41d1ff" />
-          <stop offset="1" stop-color="#bd34fe" />
+          <stop offset="0" stopColor="#41d1ff" />
+          <stop offset="1" stopColor="#bd34fe" />
         </linearGradient>
         <linearGradient
           id="b"
@@ -31,9 +31,9 @@ export const Vite = ({ className = 'h-10 w-10' }: ViteProps) => {
           gradientTransform="translate(0 .937) scale(.3122)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#ffea83" />
-          <stop offset=".083" stop-color="#ffdd35" />
-          <stop offset="1" stop-color="#ffa800" />
+          <stop offset="0" stopColor="#ffea83" />
+          <stop offset=".083" stopColor="#ffdd35" />
+          <stop offset="1" stopColor="#ffa800" />
         </linearGradient>
       </defs>
       <path

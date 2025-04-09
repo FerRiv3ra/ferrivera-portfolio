@@ -16,6 +16,7 @@ type AppContextProps = {
   category: projectIdType | 'ALL';
   filteredprojects: Project[];
   loading: boolean;
+  resumeUrl: string;
   portfolioRef: MutableRefObject<HTMLDivElement | null>;
   theme: 'light' | 'dark';
   filterProjects: (cat: 'ALL' | projectIdType) => void;
@@ -32,6 +33,7 @@ export const AppProvider = ({ children }: any) => {
   const [filteredprojects, setFilteredProjects] = useState<Project[]>([]);
   const [category, setCategory] = useState<'ALL' | projectIdType>('ALL');
   const [loading, setLoading] = useState(true);
+  const [resumeUrl, setResumeUrl] = useState('');
 
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
@@ -70,6 +72,8 @@ export const AppProvider = ({ children }: any) => {
 
   useEffect(() => {
     getProjects();
+
+    getResume();
   }, []);
 
   const toggleLanguage = () => {
@@ -117,6 +121,24 @@ export const AppProvider = ({ children }: any) => {
     }
   };
 
+  const getResume = async () => {
+    try {
+      const { data } = await axiosClient.get<{
+        record: { latestResume: string };
+      }>(`/${process.env.NEXT_PUBLIC_RESUME_URL}`, {
+        headers: {
+          'X-Access-Key': `${new String(
+            '$2a$10$wWucG5TdzdNFcRkyMJbqd.zBZ2RoveYmZQM3hxOLI9WMucY4r/CJ2'
+          )}`,
+        },
+      });
+
+      setResumeUrl(data.record.latestResume);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getProject = (projectId: string) => {
     return projects.filter((project) => project.uid === projectId)[0];
   };
@@ -153,14 +175,15 @@ export const AppProvider = ({ children }: any) => {
     <AppContext.Provider
       value={{
         aboutRef,
-        contactRef,
         category,
+        contactRef,
         filteredprojects,
         filterProjects,
         getProject,
         getRelatedProjects,
         loading,
         portfolioRef,
+        resumeUrl,
         theme,
         toggleLanguage,
         toggleTheme,

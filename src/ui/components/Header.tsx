@@ -3,18 +3,12 @@ import { useAppContext } from '@/context/AppContext';
 import { smoothScrollTo } from '@/helpers/smoothScroll';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { lato } from '../fonts';
 
 export const Header = () => {
   const { t } = useTranslation();
-  const { contactRef } = useAppContext();
-  const [resumeUrl, setResumeUrl] = useState('');
-
-  useEffect(() => {
-    setResumeUrl(process.env.NEXT_PUBLIC_RESUME_URL ?? '');
-  }, []);
+  const { contactRef, resumeUrl } = useAppContext();
 
   const handleClick = () => {
     let target: number = 0;

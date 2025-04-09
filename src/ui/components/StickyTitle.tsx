@@ -18,7 +18,7 @@ export default function StickyTitle() {
       </p>
       <div className="mt-4 pb-20 md:pb-0 lg:mt-10 z-10">
         <Image
-          src={'/Screen.png'}
+          src={'/Screen.webp'}
           alt="Phone"
           width="0"
           height="0"

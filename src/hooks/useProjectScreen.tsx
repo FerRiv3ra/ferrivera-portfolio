@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react';
 import { Project } from '@/types/appTypes';
 import { useParams } from 'next/navigation';
 import { useAppContext } from '../context/AppContext';
-import {
-  ImagesCollection,
-  carouselSelector,
-} from '../helpers/carouselSelector';
+import { carouselSelector } from '../helpers/carouselSelector';
 import { sortProyects } from '../helpers/sortProyects';
 
 export const useProjectScreen = () => {
@@ -15,13 +12,9 @@ export const useProjectScreen = () => {
   const params = useParams();
   const { getProject, getRelatedProjects, filteredprojects } = useAppContext();
 
-  const keyword =
-    project?.name.toLowerCase().startsWith('the') ||
-    project?.name.toLowerCase().startsWith('rn')
-      ? project.name.toLowerCase().split(' ')[1]
-      : project?.name.toLowerCase().split(' ')[0] ?? '';
-
-  const images = carouselSelector(keyword as ImagesCollection);
+  const images = carouselSelector(
+    project?.name?.replaceAll(' ', '_').toLowerCase() ?? ''
+  );
 
   useEffect(() => {
     setProject(getProject(params.project as string));

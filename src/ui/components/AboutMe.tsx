@@ -112,13 +112,13 @@ export const AboutMe = () => {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-5">
-          <p className="font-medium lg:w-2/3 text-sm text-[#959595]">
+          <p className="font-medium lg:w-2/3 text-base text-[#959595]">
             {t('home.description1')}
           </p>
-          <p className="font-medium lg:w-2/3 text-sm text-[#959595]">
+          <p className="font-medium lg:w-2/3 text-base text-[#959595]">
             {t('home.description2')}
           </p>
-          <p className="font-medium lg:w-2/3 text-sm text-[#959595]">
+          <p className="font-medium lg:w-2/3 text-base text-[#959595]">
             {t('home.description3')}
           </p>
         </div>

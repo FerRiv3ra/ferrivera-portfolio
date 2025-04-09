@@ -12,43 +12,43 @@ export const carouselSelector = (collection: ImagesCollection) => {
   switch (collection) {
     case 'vine':
       images = [
-        '/TheVineCentre/1.jpg',
-        '/TheVineCentre/2.jpg',
-        '/TheVineCentre/3.jpg',
-        '/TheVineCentre/4.jpg',
-        '/TheVineCentre/5.jpg',
-        '/TheVineCentre/6.jpg',
-        '/TheVineCentre/7.jpg',
+        '/TheVineCentre/1.webp',
+        '/TheVineCentre/2.webp',
+        '/TheVineCentre/3.webp',
+        '/TheVineCentre/4.webp',
+        '/TheVineCentre/5.webp',
+        '/TheVineCentre/6.webp',
+        '/TheVineCentre/7.webp',
       ];
       break;
     case 'betterlists':
       images = [
-        '/betterLists/1.png',
-        '/betterLists/2.png',
-        '/betterLists/3.png',
-        '/betterLists/4.png',
-        '/betterLists/5.png',
+        '/betterLists/1.webp',
+        '/betterLists/2.webp',
+        '/betterLists/3.webp',
+        '/betterLists/4.webp',
+        '/betterLists/5.webp',
       ];
       break;
     case 'checkstudents':
       images = [
-        '/checkStudents/1.png',
-        '/checkStudents/2.png',
-        '/checkStudents/3.png',
-        '/checkStudents/4.png',
-        '/checkStudents/5.png',
-        '/checkStudents/6.png',
-        '/checkStudents/7.png',
-        '/checkStudents/8.png',
+        '/checkStudents/1.webp',
+        '/checkStudents/2.webp',
+        '/checkStudents/3.webp',
+        '/checkStudents/4.webp',
+        '/checkStudents/5.webp',
+        '/checkStudents/6.webp',
+        '/checkStudents/7.webp',
+        '/checkStudents/8.webp',
       ];
       break;
     case 'ifootschedule':
       images = [
-        '/iFootSchedule/1.jpg',
-        '/iFootSchedule/2.jpg',
-        '/iFootSchedule/3.jpg',
-        '/iFootSchedule/4.jpg',
-        '/iFootSchedule/5.jpg',
+        '/iFootSchedule/1.webp',
+        '/iFootSchedule/2.webp',
+        '/iFootSchedule/3.webp',
+        '/iFootSchedule/4.webp',
+        '/iFootSchedule/5.webp',
       ];
       break;
     case 'segmented':

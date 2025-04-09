@@ -41,6 +41,7 @@ export const useProjectScreen = () => {
   }, [filteredprojects]);
 
   return {
+    project,
     relatedProjects,
     images,
   };

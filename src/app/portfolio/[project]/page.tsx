@@ -4,59 +4,49 @@ import { useProjectScreen } from '@/hooks/useProjectScreen';
 import { Button } from '@/ui/components/Button';
 import { Carousel } from '@/ui/components/Carousel';
 import { RelatedProjects } from '@/ui/components/RelatedProjects';
-import { indieFlower, inter, roboto } from '@/ui/fonts';
+import { lato } from '@/ui/fonts';
 import { useTranslation } from 'react-i18next';
 
 export default function ProjectScren() {
-  const { relatedProjects: projects, images } = useProjectScreen();
+  const { project, images } = useProjectScreen();
   const { i18n, t } = useTranslation();
 
-  if (projects.length === 0) return;
+  if (!project) return;
+
+  const projectDescription =
+    project.description[i18n.language as 'en'].split('\n');
 
   return (
-    <div className="flex flex-col items-center text-white pt-20">
-      <h2 className={`${indieFlower.className} text-6xl text-center mb-3`}>
-        {projects[0].name}
-      </h2>
-      <img src={projects[0].bannerUrl} className="h-full w-8/12 mx-auto mb-6" />
-      <p className={`${inter.className} font-light my-4 text-2xl`}>
-        {t('portfolio.description')}
-      </p>
-      <p
-        className={`${roboto.className} text-center font-extralight mb-5 w-2/3`}
-      >
-        {i18n.language === 'es'
-          ? projects[0].description.es
-          : i18n.language === 'en'
-          ? projects[0].description.en
-          : projects[0].description.it}
-      </p>
-      {images.length > 0 && (
-        <>
-          <p className={`${inter.className} font-light my-4 text-2xl`}>
-            {t('portfolio.screenshots')}
-          </p>
-          <Carousel images={images} />
-        </>
-      )}
-      <p className={`${inter.className} font-light my-4 text-2xl`}>
+    <div
+      className={`${lato.className} flex flex-col items-center text-white pt-20`}
+    >
+      <h2 className={'text-4xl text-center font-bold'}>{project.name}</h2>
+      <div className="flex w-2/3 gap-8 mt-10">
+        {images.length > 0 && <Carousel images={images} />}
+        <div className="flex flex-col gap-5">
+          {projectDescription.map((desc, index) => (
+            <p
+              key={index}
+              className={'font-medium lg:w-2/3 text-base text-[#959595]'}
+            >
+              {desc}
+            </p>
+          ))}
+        </div>
+      </div>
+      <p className={'text-3xl text-center font-bold my-5'}>
         {t('portfolio.technologies')}
       </p>
       <div className="container">
-        {projects.map((project, index) => (
-          <div key={index}>
-            <RelatedProjects project={project} />
-            <div className="flex flex-col md:flex-row gap-4 justify-center items-center px-4">
-              {project.url && <Button type={'url'} url={project.url} />}
-              {project.docsUrl && (
-                <Button type={'docsUrl'} url={project.docsUrl} />
-              )}
-              {project.github && (
-                <Button type={'github'} url={project.github} />
-              )}
-            </div>
-          </div>
-        ))}
+        <RelatedProjects project={project} />
+        <p className={'text-3xl text-center font-bold my-5'}>
+          {t('portfolio.links')}
+        </p>
+        <div className="flex flex-col md:flex-row gap-4 justify-center items-center px-4 mb-10">
+          {project.url && <Button type={'url'} url={project.url} />}
+          {project.github && <Button type={'github'} url={project.github} />}
+          {project.docsUrl && <Button type={'docsUrl'} url={project.docsUrl} />}
+        </div>
       </div>
     </div>
   );

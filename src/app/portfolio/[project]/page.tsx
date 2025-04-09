@@ -28,6 +28,7 @@ export default function ProjectScren() {
         </div>
       </>
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [project]);
 
   if (!project) return;

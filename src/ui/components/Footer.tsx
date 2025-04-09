@@ -1,18 +1,13 @@
 'use client';
-import { useAppContext } from '@/context/AppContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
-  const { bottomRef } = useAppContext();
   const { t } = useTranslation();
 
   return (
-    <div
-      className="flex flex-col pb-8 items-center justify-center mt-5 bg-white/[0.04]"
-      ref={bottomRef}
-    >
+    <div className="flex flex-col pb-8 items-center justify-center mt-5 bg-white/[0.04]">
       <Image
         src={'/FRLogo.webp'}
         alt="Phone"

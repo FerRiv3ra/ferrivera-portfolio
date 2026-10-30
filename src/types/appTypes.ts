@@ -72,4 +72,6 @@ export type imgNameType =
   | 'Excel JS'
   | 'React Native Camera Kit'
   | 'ONNX Runtime'
-  | 'Nitro Modules';
+  | 'Nitro Modules'
+  | 'Redux Toolkit'
+  | 'Chart.js';

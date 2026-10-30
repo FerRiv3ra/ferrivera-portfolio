@@ -15,26 +15,32 @@
     "title": "Sviluppatore mobile Fullstack"
   },
   "portfolio": {
-    "APPMOVIL": "App per dispositivi mobili",
-    "appstore": "AppStore",
+    "APPMOVIL": "App mobile",
+    "appstore": "App Store",
     "BACKEND": "Server",
     "description": "Descrizione",
     "docsUrl": "Visualizza la documentazione",
     "github": "GitHub",
     "LIBRARY": "Libreria",
-    "playstore": "PlayStore",
+    "playstore": "Google Play",
     "screenshots": "Schermate",
     "technologies": "Tecnologie",
     "url": "Apri il sito web",
     "WEB": "Applicazione Web",
-    "links": "Collegamenti"
-  },
-  "categories": {
-    "all": "Tutto",
-    "mobile": "Mobile",
-    "backend": "Server",
-    "web": "Web",
-    "library": "Biblioteche"
+    "links": "Collegamenti",
+    "featured": "Progetti in evidenza",
+    "featuredDescription": "Prodotti completi: app, API e dashboard costruiti da zero.",
+    "more": "Altri progetti",
+    "openSource": "Open source",
+    "openSourceDescription": "Librerie React Native pubblicate su npm.",
+    "viewProject": "Vedi progetto",
+    "back": "Torna al portfolio",
+    "install": "Installazione",
+    "copy": "Copia",
+    "copied": "Copiato",
+    "npm": "npm",
+    "otherProjects": "Altri progetti",
+    "included": "Cosa ho costruito"
   },
   "contact": {
     "contactMe": "Contattami",

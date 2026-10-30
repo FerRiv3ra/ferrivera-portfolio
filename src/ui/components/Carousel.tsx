@@ -3,100 +3,102 @@ import { useState } from 'react';
 
 interface Props {
   images: string[];
+  alt: string;
+  landscape?: boolean;
 }
 
-export const Carousel = ({ images }: Props) => {
+const Arrow = ({ direction }: { direction: 'left' | 'right' }) => (
+  <svg
+    className="w-4 h-4"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 6 10"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d={direction === 'left' ? 'M5 1 1 5l4 4' : 'm1 9 4-4-4-4'}
+    />
+  </svg>
+);
+
+export const Carousel = ({ images, alt, landscape = false }: Props) => {
   const [visible, setVisible] = useState(0);
 
-  const handleChange = (type: 'less' | 'add') => {
-    if (type === 'add') {
-      if (visible === images.length - 1) {
-        setVisible(0);
-      } else {
-        setVisible(visible + 1);
-      }
-    } else {
-      if (visible === 0) {
-        setVisible(images.length - 1);
-      } else {
-        setVisible(visible - 1);
-      }
-    }
-  };
+  const move = (step: number) =>
+    setVisible((current) => (current + step + images.length) % images.length);
+
+  const arrowClass =
+    'absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/60 text-white border border-white/10 backdrop-blur transition hover:bg-[#FD6F00]';
 
   return (
-    <div
-      id="default-carousel"
-      className="flex relative flex-1 flex-col items-center w-full mb-10"
-      data-carousel="slide"
-    >
-      {/* Carousel wrapper */}
-      <div className="flex relative justify-center items-center gap-5 h-auto  rounded-lg md:h-96 lg:h-[450px]">
-        {/* Item 1 */}
-
-        <button type="button" onClick={() => handleChange('less')}>
-          <div
-            className={`flex items-center justify-center w-8 h-8 rounded-full bg-white/30 group-hover:bg-black/50`}
-          >
-            <svg
-              className={`w-4 h-4 text-white`}
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 1 1 5l4 4"
-              />
-            </svg>
-          </div>
-        </button>
+    <div className="flex flex-col gap-4 w-full min-w-0">
+      <div
+        className={`relative w-full rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] ${
+          landscape ? 'aspect-[16/10]' : 'h-[420px] md:h-[520px]'
+        }`}
+      >
         <Image
+          key={images[visible]}
           src={images[visible]}
-          alt={`Project image ${visible}`}
-          width="0"
-          height="0"
-          sizes="100vw"
-          className="w-10/12 md:h-96 lg:h-[450px] md:w-auto object-cover object-top hover:scale-110 transition duration-500"
+          alt={`${alt} ${visible + 1}`}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-contain p-4"
         />
-
-        <button type="button" onClick={() => handleChange('add')}>
-          <div
-            className={`flex items-center justify-center w-8 h-8 rounded-full bg-white/30 group-hover:bg-black/50`}
-          >
-            <svg
-              className={`w-4 h-4 text-white`}
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous"
+              onClick={() => move(-1)}
+              className={`${arrowClass} left-3`}
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="m1 9 4-4-4-4"
+              <Arrow direction="left" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              onClick={() => move(1)}
+              className={`${arrowClass} right-3`}
+            >
+              <Arrow direction="right" />
+            </button>
+            <span className="absolute bottom-3 right-3 px-2 py-1 rounded-md bg-black/60 text-xs text-[#C6C6C6]">
+              {visible + 1} / {images.length}
+            </span>
+          </>
+        )}
+      </div>
+
+      {images.length > 1 && (
+        <div className="flex gap-3 overflow-x-auto pb-2">
+          {images.map((image, index) => (
+            <button
+              key={image}
+              type="button"
+              aria-label={`${alt} ${index + 1}`}
+              onClick={() => setVisible(index)}
+              className={`relative shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition ${
+                visible === index
+                  ? 'border-[#FD6F00]'
+                  : 'border-transparent opacity-50 hover:opacity-100'
+              }`}
+            >
+              <Image
+                src={image}
+                alt=""
+                fill
+                sizes="64px"
+                className="object-cover object-top"
               />
-            </svg>
-          </div>
-        </button>
-      </div>
-      {/* Slider indicators */}
-      <div className="flex mt-5 z-30 gap-4">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`w-2 h-2 rounded-full ${
-              visible === index ? 'bg-[#FD6F00]' : 'bg-[#BABABA]'
-            }`}
-          />
-        ))}
-      </div>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

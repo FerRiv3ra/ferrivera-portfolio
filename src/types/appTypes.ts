@@ -1,27 +1,33 @@
 export type projectIdType = 'APPMOVIL' | 'BACKEND' | 'WEB' | 'LIBRARY';
 
-export interface PortfolioResponse {
-  record: {
-    projects: Project[];
-  };
+export type Localized = {
+  en: string;
+  es: string;
+  it: string;
+};
+
+export type LinkType =
+  'appstore' | 'playstore' | 'url' | 'npm' | 'github' | 'docsUrl';
+
+export interface ProjectPart {
+  legacyId?: string;
+  kind: projectIdType;
+  name: string;
+  description: Localized;
+  technologies: imgNameType[];
+  links: Partial<Record<LinkType, string>>;
+  images: string[];
+  install?: string;
 }
 
-export interface Project {
-  appstore?: string;
-  bannerUrl: string;
-  category: projectIdType;
-  docsUrl?: string;
-  github?: string;
+export interface Product {
+  slug: string;
   name: string;
-  playstore?: string;
-  technologies: imgNameType[];
-  description: {
-    en: string;
-    es: string;
-    it: string;
-  };
-  uid: string;
-  url?: string;
+  tagline: Localized;
+  cover?: string;
+  featured?: boolean;
+  section: 'product' | 'library';
+  parts: ProjectPart[];
 }
 
 export type imgNameType =
@@ -60,4 +66,12 @@ export type imgNameType =
   | 'expo'
   | 'PDF Make'
   | 'PDF Kit'
-  | 'vsCode';
+  | 'vsCode'
+  | 'swift'
+  | 'kotlin'
+  | 'Excel JS'
+  | 'React Native Camera Kit'
+  | 'ONNX Runtime'
+  | 'Nitro Modules'
+  | 'Redux Toolkit'
+  | 'Chart.js';

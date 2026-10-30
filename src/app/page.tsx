@@ -1,8 +1,7 @@
 import { AboutMe } from '@/ui/components/AboutMe';
-import { Cards } from '@/ui/components/Cards';
 import { ContactMe } from '@/ui/components/contact/ContactMe';
 import { Header } from '@/ui/components/Header';
-import { PortfolioNav } from '@/ui/components/PortfolioNav';
+import { ProjectsSection } from '@/ui/components/projects/ProjectsSection';
 import StickyTitle from '@/ui/components/StickyTitle';
 
 export default function Home() {
@@ -11,8 +10,7 @@ export default function Home() {
       <Header />
       <AboutMe />
       <StickyTitle />
-      <PortfolioNav />
-      <Cards />
+      <ProjectsSection />
       <ContactMe />
     </main>
   );

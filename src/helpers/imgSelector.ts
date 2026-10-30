@@ -175,6 +175,16 @@ export const imgSelector = (imgName: imgNameType) => {
         'https://res.cloudinary.com/fercloudinary/image/upload/v1722965723/FerRivera%20Web/Logos/expo_wovw0j.png';
       title = 'Expo';
       break;
+    case 'swift':
+      img =
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/swift/swift-original.svg';
+      title = 'Swift';
+      break;
+    case 'kotlin':
+      img =
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/kotlin/kotlin-original.svg';
+      title = 'Kotlin';
+      break;
     case 'PDF Kit':
     case 'PDF Make':
       img =
@@ -182,8 +192,7 @@ export const imgSelector = (imgName: imgNameType) => {
       title = imgName;
       break;
     default:
-      img =
-        'https://res.cloudinary.com/fercloudinary/image/upload/v1698577152/FerRivera%20Web/Logos/npmPackage_vvfhxk.png';
+      img = '';
       title = imgName;
   }
 

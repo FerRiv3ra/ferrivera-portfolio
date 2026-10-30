@@ -1,70 +1,154 @@
 'use client';
 
-import { useProjectScreen } from '@/hooks/useProjectScreen';
-import { Button } from '@/ui/components/Button';
+import { findProduct, localized, otherProducts } from '@/helpers/projects';
 import { Carousel } from '@/ui/components/Carousel';
-import { RelatedProjects } from '@/ui/components/RelatedProjects';
+import { InstallSnippet } from '@/ui/components/projects/InstallSnippet';
+import { KindChips } from '@/ui/components/projects/KindChips';
+import { ProductCard } from '@/ui/components/projects/ProductCard';
+import { ProjectLinks } from '@/ui/components/projects/ProjectLinks';
+import { Technology } from '@/ui/components/Technology';
 import { lato } from '@/ui/fonts';
-import { useMemo } from 'react';
+import Link from 'next/link';
+import {
+  notFound,
+  useParams,
+  useRouter,
+  useSearchParams,
+} from 'next/navigation';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function ProjectScren() {
-  const { project, images } = useProjectScreen();
+export default function ProjectScreen() {
+  const params = useParams<{ project: string }>();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { i18n, t } = useTranslation();
 
-  const renderLinks = useMemo(() => {
-    if (!project) return null;
-    if (!project.url && !project.docsUrl && !project.github) return null;
+  const product = findProduct(params.project);
 
-    return (
-      <>
-        <p className={'text-xl xl:text-3xl text-center font-bold my-5'}>
-          {t('portfolio.links')}
-        </p>
-        <div className="flex gap-4 justify-center items-center px-4 mb-10">
-          {project.url && <Button type={'url'} url={project.url} />}
-          {project.github && <Button type={'github'} url={project.github} />}
-          {project.docsUrl && <Button type={'docsUrl'} url={project.docsUrl} />}
-        </div>
-      </>
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project]);
+  useEffect(() => {
+    // Old links pointed at a single part id; move them to the product slug.
+    if (product && product.slug !== params.project) {
+      const legacy = product.parts.find(
+        (part) => part.legacyId === params.project
+      );
+      router.replace(
+        `/portfolio/${product.slug}${legacy ? `?part=${legacy.kind}` : ''}`
+      );
+    }
+  }, [product, params.project, router]);
 
-  if (!project) return;
+  if (!product) notFound();
 
-  const projectDescription =
-    project.description[i18n.language as 'en'].split('\n');
+  const part =
+    product.parts.find(({ kind }) => kind === searchParams.get('part')) ??
+    product.parts[0];
+
+  // Native history update keeps the scroll position; Next syncs useSearchParams.
+  const selectPart = (kind: string) =>
+    window.history.replaceState(null, '', `?part=${kind}`);
+  const paragraphs = localized(part.description, i18n.language)
+    .split('\n')
+    .filter(Boolean);
 
   return (
-    <div
-      className={`${lato.className} flex flex-col items-center text-white pt-20`}
+    <main
+      className={`${lato.className} container mx-auto px-4 pt-28 pb-20 text-white`}
     >
-      <h2 className={'text-2xl xl:text-4xl text-center font-bold'}>
-        {project.name}
-      </h2>
-      <div className="flex flex-col-reverse xl:flex-row w-10/12 gap-8 mt-10">
-        {images.length > 0 && <Carousel images={images} />}
-        <div className="flex w-full xl:w-1/3 flex-col gap-5">
-          {projectDescription.map((desc, index) => (
-            <p
-              key={index}
-              className={
-                'font-medium xl:w-4/5 text-sm xl:text-base text-[#959595]'
-              }
-            >
-              {desc}
+      <Link
+        href="/#portfolio"
+        className="inline-flex items-center gap-2 text-sm font-bold text-[#959595] hover:text-[#FD6F00] transition"
+      >
+        ← {t('portfolio.back')}
+      </Link>
+
+      <header className="flex flex-col gap-4 mt-8 max-w-3xl">
+        <KindChips kinds={product.parts.map(({ kind }) => kind)} />
+        <h1 className="text-4xl md:text-5xl font-bold break-words">
+          {product.name}
+        </h1>
+        <p className="text-lg text-[#959595]">
+          {localized(product.tagline, i18n.language)}
+        </p>
+      </header>
+
+      {product.parts.length > 1 && (
+        <div className="flex flex-col gap-3 mt-12">
+          <p className="text-xs font-bold uppercase tracking-wider text-[#707070]">
+            {t('portfolio.included')}
+          </p>
+          <div className="inline-flex flex-wrap gap-2 p-1 rounded-xl bg-white/[0.04] border border-white/10 self-start">
+            {product.parts.map((item) => (
+              <button
+                key={item.name}
+                type="button"
+                onClick={() => selectPart(item.kind)}
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition ${
+                  item === part
+                    ? 'bg-[#FD6F00] text-white'
+                    : 'text-[#959595] hover:text-white'
+                }`}
+              >
+                {t(`portfolio.${item.kind}`)}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <section
+        key={part.name}
+        className={`grid gap-10 mt-8 ${
+          part.images.length ? 'lg:grid-cols-2' : 'max-w-3xl'
+        }`}
+      >
+        {part.images.length > 0 && (
+          <Carousel
+            images={part.images}
+            alt={part.name}
+            landscape={part.kind === 'WEB' || part.kind === 'BACKEND'}
+          />
+        )}
+
+        <div className="flex flex-col gap-8 min-w-0">
+          <div className="flex flex-col gap-4">
+            {product.parts.length > 1 && (
+              <h2 className="text-2xl font-bold">{part.name}</h2>
+            )}
+            {paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-[#959595] leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {part.install && <InstallSnippet command={part.install} />}
+
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#707070]">
+              {t('portfolio.technologies')}
             </p>
+            <div className="flex flex-wrap gap-2">
+              {part.technologies.map((tech) => (
+                <Technology key={tech} tech={tech} />
+              ))}
+            </div>
+          </div>
+
+          <ProjectLinks links={part.links} />
+        </div>
+      </section>
+
+      <section className="mt-24">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          {t('portfolio.otherProjects')}
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {otherProducts(product, 3).map((other) => (
+            <ProductCard key={other.slug} product={other} />
           ))}
         </div>
-      </div>
-      <p className={'text-xl xl:text-3xl text-center font-bold my-5'}>
-        {t('portfolio.technologies')}
-      </p>
-      <div className="container">
-        <RelatedProjects project={project} />
-        {renderLinks}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

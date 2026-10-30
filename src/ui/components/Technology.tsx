@@ -1,32 +1,31 @@
 import { imgNameType } from '@/types/appTypes';
 import Image from 'next/image';
 import { imgSelector } from '../../helpers/imgSelector';
-import { lato } from '../fonts';
-import { Tooltip } from './Tooltip';
 
 interface Props {
   tech: imgNameType;
-  big?: boolean;
 }
 
-export const Technology = ({ tech, big = false }: Props) => {
+export const Technology = ({ tech }: Props) => {
   const { img, title } = imgSelector(tech);
 
   return (
-    <div className={`${lato.className}`}>
-      <Tooltip message={title}>
+    <span className="inline-flex items-center gap-2 pl-1.5 pr-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-[#C6C6C6]">
+      {img ? (
         <Image
           src={img}
-          alt={title}
-          width="0"
-          height="0"
-          sizes="100vw"
-          className={big ? 'h-10 w-10 md:h-10 md:w-10 mx-auto' : 'h-10 w-10'}
+          alt=""
+          width={20}
+          height={20}
+          unoptimized={img.endsWith('.svg')}
+          className="w-5 h-5 object-contain"
         />
-      </Tooltip>
-      {big && (
-        <p className="text-center text-[10px] md:text-xs mt-3">{title}</p>
+      ) : (
+        <span className="w-5 h-5 flex items-center justify-center">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FD6F00]" />
+        </span>
       )}
-    </div>
+      {title}
+    </span>
   );
 };

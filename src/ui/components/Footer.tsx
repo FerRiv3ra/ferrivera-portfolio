@@ -38,7 +38,9 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col items-center mt-5 border-t-[0.5px] border-[#959595] w-96">
-        <p className="text-[#959595] text-sm mt-1">{t('footer.copyright')}</p>
+        <p className="text-[#959595] text-sm mt-1" suppressHydrationWarning>
+          {t('footer.copyright', { year: new Date().getFullYear() })}
+        </p>
       </div>
     </div>
   );

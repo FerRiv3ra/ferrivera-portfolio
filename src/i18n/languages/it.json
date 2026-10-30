@@ -49,6 +49,6 @@
     }
   },
   "footer": {
-    "copyright": "© 2023 Fernando Rivera. Tutti i diritti riservati."
+    "copyright": "© {{year}} Fernando Rivera. Tutti i diritti riservati."
   }
 }

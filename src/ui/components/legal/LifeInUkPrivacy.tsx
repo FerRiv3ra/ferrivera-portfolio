@@ -145,7 +145,7 @@ const CONTENT: Record<Lang, Content> = {
                 Kingdom, the European Economic Area and Switzerland),
                 Google&apos;s consent form appears before any ad is requested,
                 and you can consent, manage options or not consent. You can
-                change your choice at any time in Profile › About › Ad privacy
+                change your choice at any time in More › About › Ad privacy
                 choices.
               </li>
               <li>
@@ -207,7 +207,7 @@ const CONTENT: Record<Lang, Content> = {
               request. There is no session recording.
             </p>
             <p>
-              You can turn this off at any time in Profile › About › Share
+              You can turn this off at any time in More › About › Share
               anonymous usage data. See the{" "}
               <A href="https://posthog.com/privacy">PostHog Privacy Policy</A>.
             </p>
@@ -301,7 +301,7 @@ const CONTENT: Record<Lang, Content> = {
             ). I hold no data that identifies you: your progress is only on your
             device, and crash reports and statistics use a random identifier.
             You can delete your progress in the app or by uninstalling it, turn
-            off usage statistics in Profile, and manage ad choices as described
+            off usage statistics in More, and manage ad choices as described
             above. For anything else, write to me.
           </p>
         ),
@@ -445,8 +445,8 @@ const CONTENT: Record<Lang, Content> = {
                 Unido, el Espacio Económico Europeo y Suiza), el formulario de
                 consentimiento de Google aparece antes de pedir ningún anuncio,
                 y puedes aceptar, gestionar las opciones o no dar tu
-                consentimiento. Puedes cambiar tu elección cuando quieras en
-                Perfil › Acerca de › Privacidad de los anuncios.
+                consentimiento. Puedes cambiar tu elección cuando quieras en Más
+                › Acerca de › Privacidad de los anuncios.
               </li>
               <li>
                 <strong>Android.</strong> Puedes restablecer o borrar tu ID de
@@ -512,8 +512,8 @@ const CONTENT: Record<Lang, Content> = {
               ciudad) de la dirección IP de la solicitud. No se graban sesiones.
             </p>
             <p>
-              Puedes desactivarlo cuando quieras en Perfil › Acerca de ›
-              Compartir datos de uso anónimos. Consulta la{" "}
+              Puedes desactivarlo cuando quieras en Más › Acerca de › Compartir
+              datos de uso anónimos. Consulta la{" "}
               <A href="https://posthog.com/privacy">
                 política de privacidad de PostHog
               </A>{" "}
@@ -617,7 +617,7 @@ const CONTENT: Record<Lang, Content> = {
             ). No guardo datos que te identifiquen: tu progreso solo está en tu
             dispositivo, y los informes de errores y las estadísticas usan un
             identificador aleatorio. Puedes borrar tu progreso en la app o
-            desinstalándola, desactivar las estadísticas de uso en Perfil y
+            desinstalándola, desactivar las estadísticas de uso en Más y
             gestionar los anuncios como se explica arriba. Para cualquier otra
             cosa, escríbeme.
           </p>
